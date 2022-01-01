@@ -37,7 +37,7 @@ export default class Navbar extends Component {
                     </li>
 
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Blog</a>
+                        <a className="nav-link" href="https://jeamshiv.blogspot.com/" target="_blank">Blog</a>
                     </li>
 
 
