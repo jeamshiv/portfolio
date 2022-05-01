@@ -181,8 +181,8 @@ export default class Home extends Component {
                         </div>
                         <div className="row my-4 experience_card">
 
-                        {this.renderExperience('ScaleupAlly', 'Jr. Software Engineer | Dec 2021 - Present', 'The passionate mind behind MEAN & MERN Stack with amazing skills on the keyboard.', '0.3s')}
-                            {this.renderExperience('Cyberflow', 'Web Developer | May 2021 - Dec1', 'Working with lastest technologies, UI, React, and React Native app development.', '0.6s')}
+                        {this.renderExperience('ScaleupAlly', 'Jr. Software Engineer | Dec 2021 - Present', 'The passionate mind behind MERN Stack.', '0.3s')}
+                            {this.renderExperience('Cyberflow', 'Web Developer | May - Dec 2021', 'Working with lastest technologies, UI, React, and React Native app development.', '0.6s')}
                             {this.renderExperience('Innovatia', 'Web Developer | Oct - Nov 2020', 'I was Working there as PHP , WordPress & Frontend Web Developer.', '1.2s')}
 
                         </div>

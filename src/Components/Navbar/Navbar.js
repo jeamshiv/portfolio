@@ -43,7 +43,9 @@ export default class Navbar extends Component {
 
                     </ul>
                     <div className="my-2 my-lg-0">
-                    <button className="btn primary-button">Contact Me</button>
+                    <a href="/#contact">
+                        <button className="btn primary-button">Contact Me</button>
+                    </a>
                     </div>
                 </div>
                 </nav>

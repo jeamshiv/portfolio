@@ -5,7 +5,8 @@ import WOW from 'wowjs'
 
 export default function ContactForm() {
 
-    const[isLoading, setIsLoading] = useState(false)
+    const[isLoading, setIsLoading] = useState(false);
+    const[username, setUserName] = useState("")
 
     useEffect(() => {
         new WOW.WOW({
@@ -31,9 +32,23 @@ export default function ContactForm() {
         )
     }
 
+    const sendMessageHandler = () => {
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+        },1000)
+
+        localStorage.setItem("userName", username)
+    }
+
+    useEffect(() => {
+      console.log('getting username', username)
+    }, [username])
+    
+
     return (
         <>
-            <section className="contact container py-5 my-5">
+            <section className="contact container py-5 my-5" id="contact">
                 <div className="text-center mb-3">
                     <h5>Get in Touch</h5>
                     <h1 className="style-title">Contact Me</h1>
@@ -46,15 +61,25 @@ export default function ContactForm() {
 
                             <p><b>SAY SOMETHING</b></p>
 
-                            <form method="POST" name='PortfolioContactForm' className='PortfolioContactForm' action='/confirmation-page'>
+                            <form method="POST" name='PortfolioContactForm' className='PortfolioContactForm' action='/thank-you'>
 
                                 <input type="hidden" name="form-name" value="PortfolioContactForm" />
 
-                                <TextField className="form-control mt-3" name="name" label="Your Name" />
+                                <TextField className="form-control mt-3" 
+                                 name="name" label="Your Name" required 
+                                 onChange={(e)=> setUserName(e.target.value)}
+                                 />
 
-                                <TextField className="form-control mt-3" name="email" label="Your Email" />
+                                <TextField className="form-control mt-3" name="email" label="Your Email" type="email" required />
 
-                                <TextField className="form-control mt-3" name="phone" label="Your Phone" inputProps={{ maxLength: 10 }} />
+                                <TextField className="form-control mt-3" name="phone" label="Your Phone"
+                                    type="number"
+                                    // inputProps={{ maxLength: 10 }} 
+                                    onInput={(e) => {
+                                        e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 10)
+                                    }}
+                                    required
+                                />
 
                                 <TextField
                                     className="form-control mt-3"
@@ -62,13 +87,14 @@ export default function ContactForm() {
                                     name="message"
                                     multiline
                                     rows={4}
+                                    required
                                 />
 
 
                                 <div className="mt-5">
                                     {isLoading ? 
-                                    (<button className="primary-button" >&nbsp;<SyncLoader color="white" size={12} margin={3} /></button>) : 
-                                    (<button className="primary-button" onClick={() => setIsLoading(true)}>Send Message</button>)}
+                                    (<button className="primary-button px-5">Sending <SyncLoader color="white" size={10} margin={3} /></button>) : 
+                                    (<button className="primary-button" onClick={() => sendMessageHandler()}>Send Message</button>)}
                                 </div>
 
                             </form>
