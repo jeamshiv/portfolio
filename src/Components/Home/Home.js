@@ -147,7 +147,7 @@ export default class Home extends Component {
 
 
 
-            {/* <section className="container my-5 py-4 bg-light" style={{borderRadius: 12}}>
+            <section className="container my-5 py-4 bg-light" style={{borderRadius: 12}}>
                 <div className="text-center mb-5">
                     <h5>WHAT I DO</h5>
                     <h1 className="style-title">SPECILIZING IN</h1>
@@ -162,7 +162,7 @@ export default class Home extends Component {
                     {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Custome Support', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
                     
                 </div>
-            </section> */}
+            </section>
 
 
 
