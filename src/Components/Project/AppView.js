@@ -18,10 +18,10 @@ export default class AppView extends Component {
 
     componentDidMount=()=>{
 
-        let AppDataFind = AllProjectsData.find((item => item.projectId == this.props.match.params.id))
+        let AppDataFind = AllProjectsData.find((item => item.projectId === this.props.match.params.id))
         this.setState({AppData: AppDataFind, features: AppDataFind.features, mainContent: AppDataFind.mainContent},()=>{
             console.log('getting app data', this.state.AppData)
-            if(AppDataFind.type == "Website"){
+            if(AppDataFind.type === "Website"){
                 this.setState({isRedirect: true})
             }
 

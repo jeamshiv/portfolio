@@ -30,7 +30,7 @@ export default class Home extends Component {
     }
 
     getAllBlogsCallback=(latestPost) =>{
-        if(latestPost.status==200){
+        if(latestPost.status===200){
             // response.json().then(data=>{
                 console.log('getting blog data', latestPost)
             // })
@@ -45,7 +45,7 @@ export default class Home extends Component {
         return(
             <div className="col-lg-6 d-flex mt-3 align-items-center justify-content-center">
                 <div>
-                    <img src={icon} className="img-responsive" alt="Image" />
+                    <img src={icon} className="img-responsive" alt="What I do" />
                 </div>
                 <div className="ml-3">
                     <h4>{title}</h4>
@@ -91,7 +91,7 @@ export default class Home extends Component {
             return(
                 <div className="col-lg-4 wow fadeInUp" data-wow-delay={animeDelay}>
                     <div className={classname}>
-                        <img src={icon} className="img-fluid pb-2" alt="Image" />
+                        <img src={icon} className="img-fluid pb-2" alt="Services" />
                         <h4>{title}</h4>
                         <p>{des}</p>
                     </div>
@@ -147,7 +147,7 @@ export default class Home extends Component {
 
 
 
-            <section className="container my-5 py-4 bg-light" style={{borderRadius: 12}}>
+            {/* <section className="container my-5 py-4 bg-light" style={{borderRadius: 12}}>
                 <div className="text-center mb-5">
                     <h5>WHAT I DO</h5>
                     <h1 className="style-title">SPECILIZING IN</h1>
@@ -162,7 +162,7 @@ export default class Home extends Component {
                     {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Custome Support', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
                     
                 </div>
-            </section>
+            </section> */}
 
 
 
@@ -266,43 +266,43 @@ export default class Home extends Component {
                 <div className="row text-center">
                     <div className="col-lg-2 col-md-2 col-4 offset-lg-1 offset-md-1 align-self-center">
                         <div className="mt-4">
-                            <img src="assets/technologies/react.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/react.png" className="img-fluid" alt="ReactJs" />
                         </div>
                     </div>
 
                     <div className="col-lg-2 col-md-2 col-4 align-self-center">
                         <div className="mt-4">
-                            <img src="assets/technologies/nodejs.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/nodejs.png" className="img-fluid" alt="NodeJs" />
                         </div>
                         <div className="mt-4">
-                            <img src="assets/technologies/mongodb.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/mongodb.png" className="img-fluid" alt="Mongodb" />
                         </div>
                     </div>
 
                     <div className="col-lg-2 col-md-2 col-4 align-self-center">
                         <div className="mt-4">
-                            <img src="assets/technologies/html.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/html.png" className="img-fluid" alt="html5" />
                         </div>
                         <div className="mt-4">
-                            <img src="assets/technologies/css.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/css.png" className="img-fluid" alt="css" />
                         </div>
                         <div className="mt-4">
-                            <img src="assets/technologies/jquery.png" className="img-fluid" alt="Image" />
-                        </div>
-                    </div>
-
-                    <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
-                        <div className="mt-4">
-                            <img src="assets/technologies/php.png" className="img-fluid" alt="Image" />
-                        </div>
-                        <div className="mt-4">
-                            <img src="assets/technologies/mysql.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/jquery.png" className="img-fluid" alt="jQuery" />
                         </div>
                     </div>
 
                     <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
                         <div className="mt-4">
-                            <img src="assets/technologies/wordpress.png" className="img-fluid" alt="Image" />
+                            <img src="assets/technologies/php.png" className="img-fluid" alt="Php" />
+                        </div>
+                        <div className="mt-4">
+                            <img src="assets/technologies/mysql.png" className="img-fluid" alt="MySql" />
+                        </div>
+                    </div>
+
+                    <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
+                        <div className="mt-4">
+                            <img src="assets/technologies/wordpress.png" className="img-fluid" alt="Wordpress" />
                         </div>
                     </div>
 

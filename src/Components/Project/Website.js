@@ -15,11 +15,11 @@ export default class Website extends Component {
 
     componentDidMount=()=>{
 
-        let WebDataFind = AllProjectsData.find((item => item.projectId == this.props.match.params.id))
+        let WebDataFind = AllProjectsData.find((item => item.projectId === this.props.match.params.id))
         this.setState({WebsiteData: WebDataFind, features: WebDataFind.features, mainContent: WebDataFind.mainContent},()=>{
 
             // console.log('yeh web ka data hai', this.state.WebsiteData)
-            if(WebDataFind.type == "App"){
+            if(WebDataFind.type === "App"){
                 this.setState({isRedirect: true})
             }
 
