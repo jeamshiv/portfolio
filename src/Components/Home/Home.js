@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {getAllBlogs} from '../../ApiConnection/Blog/Blog'
 import {NavLink} from 'react-router-dom'
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import FeaturedWork from '../Project/FeaturedWork';
 import ContactForm from '../Contact/ContactForm';
 import {AllProjectsData} from '../../MemoryData/ProjectsData'
@@ -107,17 +107,17 @@ export default class Home extends Component {
     render() {
 
 
-        const protfolioSlick = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            // centerMode: true,
-            autoplay: true,
-		    autoplaySpeed: 3000,
-		    arrows: false,
-          };
+        // const protfolioSlick = {
+        //     dots: true,
+        //     infinite: true,
+        //     speed: 500,
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     // centerMode: true,
+        //     autoplay: true,
+		//     autoplaySpeed: 3000,
+		//     arrows: false,
+        //   };
 
 
         return (

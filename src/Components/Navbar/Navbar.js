@@ -29,7 +29,7 @@ export default class Navbar extends Component {
                         <NavLink to="/" className="nav-link">Home <span className="sr-only">(current)</span></NavLink>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Services</a>
+                        <NavLink className="nav-link" to="#">Services</NavLink>
                     </li>
 
                     <li className="nav-item">
@@ -37,7 +37,7 @@ export default class Navbar extends Component {
                     </li>
 
                     <li className="nav-item">
-                        <a className="nav-link" href="https://jeamshiv.blogspot.com/" target="_blank">Blog</a>
+                        <NavLink className="nav-link" href="https://jeamshiv.blogspot.com/" target="_blank" rel="noreferrer">Blog</NavLink>
                     </li>
 
 

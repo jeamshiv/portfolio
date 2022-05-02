@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
 
 
-import WOW from 'wowjs'
+// import WOW from 'wowjs'
 
 export default class Footer extends Component {
 
@@ -32,8 +32,8 @@ export default class Footer extends Component {
 
                             <div className="my-4">
                                 <NavLink to="/" className="mr-2">Home</NavLink>
-                                <a href="" className="mr-2">About me</a>
-                                <a href="" className="mr-2">Service</a>
+                                <NavLink to="" className="mr-2" >About me</NavLink>
+                                <NavLink to="" className="mr-2">Service</NavLink>
                             </div>
 
 
@@ -52,7 +52,7 @@ export default class Footer extends Component {
                 </footer>
 
 
-                <img src="../assets/education.png" className="img-fluid footerimg" width="50%" alt="Image" />
+                <img src="../assets/education.png" className="img-fluid footerimg" width="50%" alt="eduction" />
 
             </div>
                 <div className="container-fluid gradientBackgroundPrimary py-1">

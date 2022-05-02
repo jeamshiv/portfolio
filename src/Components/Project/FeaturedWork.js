@@ -31,7 +31,7 @@ export default class FeaturedWork extends Component {
                         </div>
 
                         <div className="col-lg-6 col-md-6 wow fadeInRight">
-                            <img src={FeaturedWordData.bannerImg} className="img-fluid" alt="Image" />
+                            <img src={FeaturedWordData.bannerImg} className="img-fluid" alt="banner" />
                         </div>
 
                     </div>

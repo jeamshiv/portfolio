@@ -114,7 +114,7 @@ export default class AppView extends Component {
 
                         <div className="col-lg-6 order-sm-2">
                             <div>
-                                <img src="../assets/mobile-12.png" className="img-fluid" alt="" />
+                                <img src="../assets/mobile-12.png" className="img-fluid" alt="mobile view" />
                             </div>
                         </div>
                         
@@ -160,7 +160,7 @@ export default class AppView extends Component {
                                 <div className="col-lg-6 col-md-6 col-10 mt-4">
                                     <div className="d-flex align-items-center bg-ffffff px-4 py-2 rounded playStoreBtn">
                                         <div className="mr-3">
-                                            <img src="../assets/IconPlayStore.png" alt="" />
+                                            <img src="../assets/IconPlayStore.png" alt="Play store icon" />
                                         </div>
                                         <div>
                                             <p className="mb-0">Get It On</p>
@@ -172,7 +172,7 @@ export default class AppView extends Component {
                                <div className="col-lg-6 col-md-6 col-10 mt-4">
                                     <div className="d-flex align-items-center bg-ffffff px-4 py-2 rounded playStoreBtn">
                                         <div className="mr-3">
-                                            <img src="../assets/IconAppleStore.png" alt="" />
+                                            <img src="../assets/IconAppleStore.png" alt="Apple store" />
                                         </div>
                                         <div>
                                             <p className="mb-0">Get It On</p>
@@ -186,7 +186,7 @@ export default class AppView extends Component {
 
                         <div className="col-lg-6" style={{backgroundImage: "url(../assets/verticaleSquareShape.png)", backgroundPosition: 'right', backgroundRepeat: 'no-repeat',}} >
                             <div className="text-center px-4">
-                                <img src="../assets/1.png" className="img-fluid" alt="" />
+                                <img src="../assets/1.png" className="img-fluid" alt="banner" />
                             </div>
                         </div>
 
@@ -208,22 +208,22 @@ export default class AppView extends Component {
                
                     <Slider {...slicksettings}>
                         <div className="px-2">
-                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen1" />
                         </div>
                         <div className="px-2">
-                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen 2" />
                         </div>
                         <div className="px-2">
-                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 3" />
                         </div>
                         <div className="px-2">
-                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 4" />
                         </div>
                         <div className="px-2">
-                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen 5" />
                         </div>
                         <div className="px-2">
-                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="" />
+                            <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 6" />
                         </div>
                           
                     </Slider>

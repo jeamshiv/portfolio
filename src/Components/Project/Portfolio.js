@@ -45,7 +45,7 @@ export default class Portfolio extends Component {
 
                         <div className="col-lg-6 wow fadeInRight" data-wow-delay="0.6s" style={{backgroundImage: "url(../assets/verticaleSquareShape.png)", backgroundPosition: 'right', backgroundRepeat: 'no-repeat',}} >
                             <div className="text-center px-4">
-                                <img src="../assets/1.png" className="img-fluid" alt="" />
+                                <img src="../assets/1.png" className="img-fluid" alt="banner screen" />
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@ export default class Portfolio extends Component {
                         
                         <div key={key} className="col-lg-4 col-md-6 portfolioInfoCardWrapper mt-3 wow fadeInUp" data-wow-duration={key+0.2+'s'}>
                             <div style={{position: 'relative'}}>
-                                <img src={item.headerImage} className="img-fluid" alt="" />
+                                <img src={item.headerImage} className="img-fluid" alt="header " />
                             </div>
                             <div className="py-2 w-75 borderRadius12 portfolioInfoCard">
                                 <p className="text-secondary mb-1 text-center">{item.type}</p>

@@ -89,7 +89,7 @@ export default class Website extends Component {
 
                         <div className="col-lg-6 order-sm-2">
                             <div>
-                                <img src="../assets/mobile-12.png" className="img-fluid" alt="" />
+                                <img src="../assets/mobile-12.png" className="img-fluid" alt="mobile 12 icon" />
                             </div>
                         </div>
                         
@@ -136,7 +136,7 @@ export default class Website extends Component {
 
                         <div className="col-lg-6" style={{backgroundImage: "url(../assets/verticaleSquareShape.png)", backgroundPosition: 'right', backgroundRepeat: 'no-repeat',}} >
                             <div className="text-center px-4">
-                                <img src="../assets/1.png" className="img-fluid" alt="" />
+                                <img src="../assets/1.png" className="img-fluid" alt="banner poster" />
                             </div>
                         </div>
 
