@@ -37,7 +37,7 @@ export default class Navbar extends Component {
                     </li>
 
                     <li className="nav-item">
-                        <NavLink className="nav-link" href="https://jeamshiv.blogspot.com/" target="_blank" rel="noreferrer">Blog</NavLink>
+                        <NavLink className="nav-link" to="https://jeamshiv.blogspot.com/" target="_blank" rel="noreferrer">Blog</NavLink>
                     </li>
 
 

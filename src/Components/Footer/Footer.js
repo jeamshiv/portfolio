@@ -32,8 +32,8 @@ export default class Footer extends Component {
 
                             <div className="my-4">
                                 <NavLink to="/" className="mr-2">Home</NavLink>
-                                <NavLink to="" className="mr-2" >About me</NavLink>
-                                <NavLink to="" className="mr-2">Service</NavLink>
+                                <NavLink to="/" className="mr-2" >About me</NavLink>
+                                <NavLink to="/" className="mr-2">Service</NavLink>
                             </div>
 
 
