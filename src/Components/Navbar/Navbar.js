@@ -1,57 +1,72 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
-
-import WOW from 'wowjs'
+import WOW from "wowjs";
 
 export default class Navbar extends Component {
+  componentDidMount() {
+    new WOW.WOW({
+      live: false,
+    }).init();
+  }
 
-    componentDidMount() {
-        new WOW.WOW({
-            live:false
-        }).init();
-    }
+  render() {
+    return (
+      <header className="container-fluid">
+        <nav className="navbar navbar-expand-lg fixed-top navbar-dark py-3">
+          <NavLink to="/" className="navbar-brand">
+            Jeamshiv
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-    render() {
-        return (
-            <header className="container-fluid">
-		
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <NavLink to="/" className="nav-link">
+                  Home <span className="sr-only">(current)</span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">
+                  Services
+                </NavLink>
+              </li>
 
-                <nav className="navbar navbar-expand-lg fixed-top navbar-dark py-3">
-                <NavLink to="/" className="navbar-brand">Jeamshiv</NavLink>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+              <li className="nav-item">
+                <NavLink to="/portfolio" className="nav-link">
+                  Portfolio
+                </NavLink>
+              </li>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                        <NavLink to="/" className="nav-link">Home <span className="sr-only">(current)</span></NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="#">Services</NavLink>
-                    </li>
-
-                    <li className="nav-item">
-                        <NavLink to="/portfolio" className="nav-link">Portfolio</NavLink>
-                    </li>
-
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="https://jeamshiv.blogspot.com/" target="_blank" rel="noreferrer">Blog</NavLink>
-                    </li>
-
-
-                    </ul>
-                    <div className="my-2 my-lg-0">
-                    <a href="/#contact">
-                        <button className="btn primary-button">Contact Me</button>
-                    </a>
-                    </div>
-                </div>
-                </nav>
-
-
-            </header>
-        )
-    }
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="https://jeamshiv.blogspot.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+            <div className="my-2 my-lg-0">
+              <a href="/#contact">
+                <button className="btn primary-button">Contact Me</button>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    );
+  }
 }
