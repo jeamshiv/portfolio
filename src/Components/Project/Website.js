@@ -9,7 +9,7 @@ export default function Website(props) {
 
   useEffect(() => {
     const WebDataFind = AllProjectsData.filter((item) =>
-      item.title.includes("Food Taxi")
+      item.projectId.includes(props.match.params.id)
     )[0];
     console.log("gettign jeeptAutos", WebDataFind);
     setwebsiteData(WebDataFind);

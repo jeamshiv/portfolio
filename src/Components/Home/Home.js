@@ -134,12 +134,9 @@ export default class Home extends Component {
                 <h1>Web Developer</h1>
                 <p>I am React Developer and React Native App Developer.</p>
                 <button className="primary-button">
-                  <Link
-                    to="#contact"
-                    className="txt-ffffff text-decoration-none"
-                  >
+                  <a href="#contact" className="txt-ffffff">
                     Contact Me
-                  </Link>
+                  </a>
                 </button>{" "}
                 &nbsp;
                 <a
