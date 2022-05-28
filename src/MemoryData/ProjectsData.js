@@ -9,14 +9,14 @@ export const FeaturedWordData = {
 
 export const AllProjectsData = [
   {
-    projectId: "6",
+    projectId: "7",
     title: "DuBuddy - App showcase",
     description:
       "This is webiste createed using PHP and Bootstrap. This app showcase website will help dedicated to bring all the basic needs of an aspirant, eyeing an admission to the delhi university. DU BUDDY Android app is available on Google Play Store ",
     type: "Website",
     link: "https://www.dubuddy.in/",
     headerImage:
-      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/FoodTaxi.webp",
+      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/dubuddy-webiste.webp",
     technologies: "Html, Css, JavaScript, PHP, Bootstrap,",
     features: [
       {
