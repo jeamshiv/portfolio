@@ -7,7 +7,6 @@ import ContactForm from "../Contact/ContactForm";
 import { AllProjectsData } from "../../MemoryData/ProjectsData";
 
 import WOW from "wowjs";
-import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   state = {

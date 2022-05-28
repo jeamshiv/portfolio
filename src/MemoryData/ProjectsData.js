@@ -10,6 +10,55 @@ export const FeaturedWordData = {
 export const AllProjectsData = [
   {
     projectId: "6",
+    title: "DuBuddy - App showcase",
+    description:
+      "This is webiste createed using PHP and Bootstrap. This app showcase website will help dedicated to bring all the basic needs of an aspirant, eyeing an admission to the delhi university. DU BUDDY Android app is available on Google Play Store ",
+    type: "Website",
+    link: "https://www.dubuddy.in/",
+    headerImage:
+      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/FoodTaxi.webp",
+    technologies: "Html, Css, JavaScript, PHP, Bootstrap,",
+    features: [
+      {
+        title: "Mobile First",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "Optimized Code",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "Free SEO",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "6 Months Support",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+    ],
+    mainContent: [
+      {
+        heading: "Why Jeamshiv blogger",
+        body: "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
+      },
+      {
+        heading: "Other Import Secret",
+        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+      },
+    ],
+    fullScreenShot: null,
+    screenshots: [
+      { img: "", des: "Home page hai yeh" },
+      { img: "", des: "Yeh contact Page hai" },
+    ],
+  },
+
+  {
+    projectId: "6",
     title: "Food Taxi",
     description:
       "This is website create in React for Food and Taxi services provider.",

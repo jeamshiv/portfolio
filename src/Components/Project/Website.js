@@ -8,10 +8,9 @@ export default function Website(props) {
   const [mainContent, setMainContent] = useState();
 
   useEffect(() => {
-    const WebDataFind = AllProjectsData.filter((item) =>
-      item.projectId.includes(props.match.params.id)
-    )[0];
-    console.log("gettign jeeptAutos", WebDataFind);
+    let WebDataFind = AllProjectsData.find(
+      (item) => item.projectId === props.match.params.id
+    );
     setwebsiteData(WebDataFind);
     setFeatures(WebDataFind?.features);
     setMainContent(WebDataFind?.mainContent);
