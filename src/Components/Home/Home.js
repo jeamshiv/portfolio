@@ -7,6 +7,7 @@ import ContactForm from "../Contact/ContactForm";
 import { AllProjectsData } from "../../MemoryData/ProjectsData";
 
 import WOW from "wowjs";
+import Blog from "../Blog/Blog";
 
 export default class Home extends Component {
   state = {
@@ -381,6 +382,7 @@ export default class Home extends Component {
             <h5>Latest Blog</h5>
             <h1 className="style-title">My Blog</h1>
           </div>
+          {/* <Blog /> */}
           <div className="row" id="blogdata">
             <p style={{ margin: "0 auto" }}>Oops! Connection Error.</p>
           </div>
