@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ContactForm from "../Contact/ContactForm";
 import { AllProjectsData } from "../../MemoryData/ProjectsData";
+import Blog from "../Blog/Blog";
 
 export default function Website(props) {
   const [websiteData, setwebsiteData] = useState();
@@ -154,16 +155,7 @@ export default function Website(props) {
         </div>
       </div>
 
-      <section className="container py-5 my-5">
-        <div className="text-center mb-3">
-          <h5>Latest Blog</h5>
-          <h1 className="style-title">My Blog</h1>
-        </div>
-        <div className="row" id="blogdata">
-          <p style={{ margin: "0 auto" }}>Oops! Connection Error.</p>
-        </div>
-      </section>
-
+      <Blog />
       <ContactForm />
     </>
   );

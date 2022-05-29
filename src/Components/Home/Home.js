@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { getAllBlogs } from "../../ApiConnection/Blog/Blog";
 import { NavLink } from "react-router-dom";
-// import Slider from "react-slick";
 import FeaturedWork from "../Project/FeaturedWork";
 import ContactForm from "../Contact/ContactForm";
 import { AllProjectsData } from "../../MemoryData/ProjectsData";
@@ -17,24 +15,12 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    getAllBlogs(this.getAllBlogsCallback);
-
     this.setState({ portfolioData: AllProjectsData });
 
     new WOW.WOW({
       live: false,
     }).init();
   }
-
-  getAllBlogsCallback = (latestPost) => {
-    if (latestPost.status === 200) {
-      // response.json().then(data=>{
-      console.log("getting blog data", latestPost);
-      // })
-    } else {
-      console.log("unable to gett the data");
-    }
-  };
 
   renderWhatIDo = (icon, title, des) => {
     return (
@@ -377,16 +363,7 @@ export default class Home extends Component {
           </div>
         </section>
 
-        <section className="container py-5 my-5">
-          <div className="text-center mb-3">
-            <h5>Latest Blog</h5>
-            <h1 className="style-title">My Blog</h1>
-          </div>
-          {/* <Blog /> */}
-          <div className="row" id="blogdata">
-            <p style={{ margin: "0 auto" }}>Oops! Connection Error.</p>
-          </div>
-        </section>
+        <Blog />
 
         <ContactForm />
       </>

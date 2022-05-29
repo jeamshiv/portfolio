@@ -89,10 +89,10 @@
 
 
     
-
+    <!-- Getting blogspot data -->
     <script src='https://jeamshiv.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost' async='async'></script>
    
-    <script>
+    <!-- <script>
     	function latestPost(json){
     		/*console.log(json.feed.entry);*/
     	
@@ -132,7 +132,7 @@
     		string += `
 
     				<div class="col-lg-4 col-md-6 pt-4">
-    					<!-- blog card start -->
+    					
     					<div class="card">
     					 <div class='imgwrapper'>
     					 	<a href="${arr[b].link[4].href}" target="_bank">
@@ -148,7 +148,7 @@
     					    <a href="${arr[b].link[4].href}" target="_bank">Read More</a>
     					  </div>
     					</div>
-    					<!-- blog card end -->
+    					
     				</div>
 
     		`;	
@@ -157,7 +157,7 @@
     	$("#blogdata").html(string);
 
     	}
-    </script>
+    </script> -->
 
   </body>
 </html>
