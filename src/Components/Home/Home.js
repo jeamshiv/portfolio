@@ -120,13 +120,15 @@ export default class Home extends Component {
                 <h1>Web Developer</h1>
                 <p>I am React Developer and React Native App Developer.</p>
                 <a href="#contact">
-                  <button className="primary-button">Contact Me</button>{" "}
+                  <button className="secondary-button borderRadius30">
+                    Contact Me
+                  </button>
                 </a>
                 &nbsp;
                 <a
                   href="/assets/resume.pdf"
                   download="Shivam Resume"
-                  className="alternative-button text-light"
+                  className="primary-button-outline borderRadius30"
                 >
                   Get CV
                 </a>

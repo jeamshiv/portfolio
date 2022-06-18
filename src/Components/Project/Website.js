@@ -41,7 +41,7 @@ export default function Website(props) {
                 className="primary-button"
               >
                 <span className="text-light">Live Preview</span>
-              </a>{" "}
+              </a>
               &nbsp;
             </div>
           </div>
@@ -131,7 +131,9 @@ export default function Website(props) {
                 technologies.
               </p>
               <div className="text-center mt-4 mb-5">
-                <button className="alternative-button">Let's Talk Now</button>
+                <button className="tertiary-button borderRadius30">
+                  Let's Talk Now
+                </button>
               </div>
             </div>
 
