@@ -19,7 +19,7 @@ export default function Blog() {
         const element = json.feed.entry[index];
         //updating 72 image size to 300
         element.media$thumbnail["url"] = element?.media$thumbnail.url?.replace(
-          "=s72-c",
+          "s72-c",
           "s400"
         );
         //made content readable
