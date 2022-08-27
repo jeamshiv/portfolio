@@ -96,7 +96,8 @@ export default class Home extends Component {
           <div id="head2"></div>
           <div className="row">
             <div
-              className="col-lg-6 col-md-6 text-center align-self-center order-sm-2 wow bounceInDown"
+              className="col-lg-6 col-md-6 text-center align-self-center order-sm-2 wow bounceInDown js-tilt"
+              data-tilt
               data-wow-delay="0.6s"
             >
               <img

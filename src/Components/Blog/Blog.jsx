@@ -3,17 +3,24 @@ import moment from "moment";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState();
+  // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    // setTimeout(
+    // get Blogger data from script
+    const scriptTag = document.createElement("script");
+    scriptTag.src =
+      "https://jeamshiv.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost";
+    // scriptTag.addEventListener("load", () => setLoaded(true));
+    document.body.appendChild(scriptTag);
+
+    //use the script callback here
     window.latestPost = function (json) {
-      // console.log("getting response here at blog Wale section", json.feed.entry);
       for (let index = 0; index < json?.feed.entry.length; index++) {
         const element = json.feed.entry[index];
         //updating 72 image size to 300
         element.media$thumbnail["url"] = element?.media$thumbnail.url?.replace(
-          "s72-c",
-          "s300"
+          "=s72-c",
+          "s400"
         );
         //made content readable
         element.content["$t"] = element.content.$t
@@ -22,9 +29,7 @@ export default function Blog() {
       }
       setBlogData(json.feed.entry);
     };
-    //   3000
-    // );
-  }, [blogData]);
+  }, []);
 
   return (
     <>
@@ -36,7 +41,6 @@ export default function Blog() {
         <div className="row" id="blogdata">
           {blogData?.slice(0, 6).map((item, index) => (
             <div className="col-lg-4 col-md-6 pt-4" key={index}>
-              {console.log("getting index of the blox", index)}
               <div className="card">
                 <div className="imgwrapper">
                   <a href={item.link[4].href} target="_bank">
