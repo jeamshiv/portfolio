@@ -10,7 +10,7 @@ export const FeaturedWordData = {
 export const AllProjectsData = [
   {
     projectId: "8",
-    title: "Ecommerce Product Website Page",
+    title: "Ecommerce Product Page",
     description:
       "It was frontendmentor challenge - Ecommerce Product Page , design challenge that I took part in and I have created the website page. You can also go throught this link - https://www.frontendmentor.io/challenges , I have created this Ecommerce website page using NextJs and Bootstrap",
     type: "Website",
