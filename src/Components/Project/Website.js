@@ -25,8 +25,10 @@ export default function Website(props) {
           <div className="col-lg-6 col-md-6 text-center align-self-center px-3 px-lg-5 mb-lg-0 mb-md-0 mb-5 order-sm-2">
             <img
               src={websiteData?.headerImage}
-              className="img-fluid banner-image mt-5 mt-sm-0"
+              className="img-fluid banner-image mt-5 mt-sm-0 js-tilt"
               alt="jeamshiv portfolio header"
+              data-tilt
+              data-wow-delay="0.6s"
             />
           </div>
 

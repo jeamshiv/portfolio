@@ -9,6 +9,55 @@ export const FeaturedWordData = {
 
 export const AllProjectsData = [
   {
+    projectId: "8",
+    title: "Ecommerce Product Website Page",
+    description:
+      "It was frontendmentor challenge - Ecommerce Product Page , design challenge that I took part in and I have created the website page. You can also go throught this link - https://www.frontendmentor.io/challenges , I have created this Ecommerce website page using NextJs and Bootstrap",
+    type: "Website",
+    link: "https://ecommerce-product-page-main-frontendmentor-jeamshiv.vercel.app/",
+    headerImage:
+      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/FoodTaxi.webp",
+    technologies: "Html, Css, JavaScript, NextJs, Bootstrap-5,",
+    features: [
+      {
+        title: "Mobile First",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "Optimized Code",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "Free SEO",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+      {
+        title: "6 Months Support",
+        description:
+          "Most provably best dashboard design for your business you can try.",
+      },
+    ],
+    mainContent: [
+      {
+        heading: "What Interesting here?",
+        body: "It was my first project which I created using NextJs before I started working on I hadn't wrong a single line of code in NextJs. On the same day I had watched online tutorial from youtube.",
+      },
+      {
+        heading: "Other Import Secret",
+        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+      },
+    ],
+    fullScreenShot: null,
+    screenshots: [
+      { img: "", des: "Home page hai yeh" },
+      { img: "", des: "Yeh contact Page hai" },
+    ],
+  },
+
+  {
     projectId: "7",
     title: "DuBuddy - App showcase",
     description:
