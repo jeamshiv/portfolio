@@ -14,10 +14,11 @@ export const AllProjectsData = [
     description:
       "It was frontendmentor challenge - Ecommerce Product Page , design challenge that I took part in and I have created the website page. You can also go throught this link - https://www.frontendmentor.io/challenges , I have created this Ecommerce website page using NextJs and Bootstrap",
     type: "Website",
-    link: "https://ecommerce-product-page-main-frontendmentor-jeamshiv.vercel.app/",
+    link:
+      "https://ecommerce-product-page-main-frontendmentor-jeamshiv.vercel.app/",
     headerImage:
-      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/FoodTaxi.webp",
-    technologies: "Html, Css, JavaScript, NextJs, Bootstrap-5,",
+      "https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/ecommerce-product-page-main-frontendmentor.webp",
+    technologies: "Html, Css, ReactJs, NextJs, Bootstrap-5,",
     features: [
       {
         title: "Mobile First",
@@ -43,11 +44,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "What Interesting here?",
-        body: "It was my first project which I created using NextJs before I started working on I hadn't wrong a single line of code in NextJs. On the same day I had watched online tutorial from youtube.",
+        body:
+          "It was my first project which I created using NextJs before I started working on I hadn't wrong a single line of code in NextJs. On the same day I had watched online tutorial from youtube.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -92,11 +95,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Jeamshiv blogger",
-        body: "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -141,11 +146,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Jeamshiv blogger",
-        body: "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -236,11 +243,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Jeamshiv blogger",
-        body: "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -285,11 +294,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Jeamshiv blogger",
-        body: "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make jeamshiv blogspot website unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -334,11 +345,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Study Hub",
-        body: "The gradient color and the theme shape make Study Hub theme unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make Study Hub theme unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
@@ -383,11 +396,13 @@ export const AllProjectsData = [
     mainContent: [
       {
         heading: "Why Study Hub",
-        body: "The gradient color and the theme shape make Study Hub theme unique from anything else and it have simple navigation.",
+        body:
+          "The gradient color and the theme shape make Study Hub theme unique from anything else and it have simple navigation.",
       },
       {
         heading: "Other Import Secret",
-        body: "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
+        body:
+          "It has working contact form which mean if you contact throught this website I and you both will get a mail from it and there is also live chat option there.",
       },
     ],
     fullScreenShot: null,
