@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
 export default function Blog() {
   const [blogData, setBlogData] = useState();
@@ -7,9 +7,8 @@ export default function Blog() {
 
   useEffect(() => {
     // get Blogger data from script
-    const scriptTag = document.createElement("script");
-    scriptTag.src =
-      "https://jeamshiv.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost";
+    const scriptTag = document.createElement('script');
+    scriptTag.src = 'https://jeamshiv.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost';
     // scriptTag.addEventListener("load", () => setLoaded(true));
     document.body.appendChild(scriptTag);
 
@@ -18,14 +17,9 @@ export default function Blog() {
       for (let index = 0; index < json?.feed.entry.length; index++) {
         const element = json.feed.entry[index];
         //updating 72 image size to 300
-        element.media$thumbnail["url"] = element?.media$thumbnail.url?.replace(
-          "s72-c",
-          "s400"
-        );
+        element.media$thumbnail['url'] = element?.media$thumbnail.url?.replace('s72-c', 's400');
         //made content readable
-        element.content["$t"] = element.content.$t
-          .replace(/(<([^>]+)>)/gi, "")
-          .substr(0, 150);
+        element.content['$t'] = element.content.$t.replace(/(<([^>]+)>)/gi, '').substr(0, 150);
       }
       setBlogData(json.feed.entry);
     };
@@ -44,11 +38,7 @@ export default function Blog() {
               <div className="card">
                 <div className="imgwrapper">
                   <a href={item.link[4].href} target="_bank">
-                    <img
-                      className="card-img-top img-fluid"
-                      src={item.media$thumbnail.url}
-                      alt={item.title.$t}
-                    />
+                    <img className="card-img-top img-fluid" src={item.media$thumbnail.url} alt={item.title.$t} />
                   </a>
                 </div>
                 <div className="card-body">
@@ -58,13 +48,9 @@ export default function Blog() {
                     </a>
                   </h4>
                   <p className="text-muted m-0">
-                    {moment(item.published.$t).isValid()
-                      ? moment(item.published.$t).format("MMM DD, YYYY")
-                      : "-"}
+                    {moment(item.published.$t).isValid() ? moment(item.published.$t).format('MMM DD, YYYY') : '-'}
                   </p>
-                  <p className="card-text blog-content-truncate">
-                    {item.content.$t}
-                  </p>
+                  <p className="card-text blog-content-truncate">{item.content.$t}</p>
                   <a href={item.link[4].href} target="_bank">
                     Read More
                   </a>

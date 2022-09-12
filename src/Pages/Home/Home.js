@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import FeaturedWork from "../Project/FeaturedWork";
-import ContactForm from "../Contact/ContactForm";
-import { AllProjectsData } from "../../MemoryData/ProjectsData";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import FeaturedWork from '../../Components/FeaturedWork/FeaturedWork';
+import ContactForm from '../../Components/Contact/ContactForm';
+import { AllProjectsData } from '../../MemoryData/ProjectsData';
 
-import WOW from "wowjs";
-import Blog from "../Blog/Blog";
+import WOW from 'wowjs';
+import Blog from '../../Components/Blog/Blog';
 
 export default class Home extends Component {
   state = {
     isLoading: false,
-    yourName: "",
-    portfolioData: [],
+    yourName: '',
+    portfolioData: []
   };
 
   componentDidMount() {
     this.setState({ portfolioData: AllProjectsData });
 
     new WOW.WOW({
-      live: false,
+      live: false
     }).init();
   }
 
@@ -38,10 +38,7 @@ export default class Home extends Component {
 
   renderExperience = (company, duration, des, animeDuration) => {
     return (
-      <div
-        className="col-12 mt-3 wow bounceInLeft"
-        data-wow-duration={animeDuration}
-      >
+      <div className="col-12 mt-3 wow bounceInLeft" data-wow-duration={animeDuration}>
         <div className="d-flex py-3">
           <div className="mx-4 align-self-center">
             <i className="fas fa-code"></i>
@@ -98,8 +95,7 @@ export default class Home extends Component {
             <div
               className="col-lg-6 col-md-6 text-center align-self-center order-sm-2 wow bounceInDown js-tilt"
               data-tilt
-              data-wow-delay="0.6s"
-            >
+              data-wow-delay="0.6s">
               <img
                 src="../assets/boywithcomputerpink.png"
                 className="img-fluid banner-image mt-5 mt-sm-0"
@@ -107,13 +103,10 @@ export default class Home extends Component {
               />
             </div>
 
-            <div
-              className="col-lg-6 col-md-6 align-self-center order-sm-1 wow fadeInLeft"
-              data-wow-delay="1s"
-            >
+            <div className="col-lg-6 col-md-6 align-self-center order-sm-1 wow fadeInLeft" data-wow-delay="1s">
               <div className="pb-5 pl-2 pl-lg-5 pt-lg-5 mt-sm-5">
                 <h5 className="pb-0">
-                  HELLO, IM JEAMSHIV{" "}
+                  HELLO, IM JEAMSHIV{' '}
                   <span className="wave">
                     <img src="../assets/hand.png" width="40px" alt="" />
                   </span>
@@ -121,16 +114,10 @@ export default class Home extends Component {
                 <h1>Web Developer</h1>
                 <p>I am React Developer and React Native App Developer.</p>
                 <a href="#contact">
-                  <button className="secondary-button borderRadius30">
-                    Contact Me
-                  </button>
+                  <button className="secondary-button borderRadius30">Contact Me</button>
                 </a>
                 &nbsp;
-                <a
-                  href="/assets/resume.pdf"
-                  download="Shivam Resume"
-                  className="primary-button-outline borderRadius30"
-                >
+                <a href="/assets/resume.pdf" download="Shivam Resume" className="primary-button-outline borderRadius30">
                   Get CV
                 </a>
               </div>
@@ -167,22 +154,22 @@ export default class Home extends Component {
               </div>
               <div className="row my-4 experience_card">
                 {this.renderExperience(
-                  "ScaleupAlly",
-                  "Jr. Software Engineer | Dec 2021 - Present",
-                  "The passionate mind behind MERN Stack.",
-                  "0.3s"
+                  'ScaleupAlly',
+                  'Jr. Software Engineer | Dec 2021 - Present',
+                  'The passionate mind behind MERN Stack.',
+                  '0.3s'
                 )}
                 {this.renderExperience(
-                  "Cyberflow",
-                  "Web Developer | May - Dec 2021",
-                  "Working with lastest technologies, UI, React, and React Native app development.",
-                  "0.6s"
+                  'Cyberflow',
+                  'Web Developer | May - Dec 2021',
+                  'Working with lastest technologies, UI, React, and React Native app development.',
+                  '0.6s'
                 )}
                 {this.renderExperience(
-                  "Innovatia",
-                  "Web Developer | Oct - Nov 2020",
-                  "I was Working there as PHP , WordPress & Frontend Web Developer.",
-                  "1.2s"
+                  'Innovatia',
+                  'Web Developer | Oct - Nov 2020',
+                  'I was Working there as PHP , WordPress & Frontend Web Developer.',
+                  '1.2s'
                 )}
               </div>
             </div>
@@ -192,24 +179,24 @@ export default class Home extends Component {
                   <div id="content">
                     <ul className="timeline">
                       {this.renderTimeline(
-                        "2018-2021",
-                        "BA Graduation",
-                        "I have recently completed by Graduation from IGNOU"
+                        '2018-2021',
+                        'BA Graduation',
+                        'I have recently completed by Graduation from IGNOU'
                       )}
                       {this.renderTimeline(
-                        "2018-2020",
-                        "It-Expert | Diploma in IT",
-                        "I Joined Arth Institute to get the fundamental knowledge of Web development."
+                        '2018-2020',
+                        'It-Expert | Diploma in IT',
+                        'I Joined Arth Institute to get the fundamental knowledge of Web development.'
                       )}
                       {this.renderTimeline(
-                        "2018",
-                        "12th Passed | CBSE Board",
-                        "I have completed by 12th from Government School"
+                        '2018',
+                        '12th Passed | CBSE Board',
+                        'I have completed by 12th from Government School'
                       )}
                       {this.renderTimeline(
-                        "2016",
-                        "10th Passed | CBSE Board",
-                        "I have completed by 10th from same Government School"
+                        '2016',
+                        '10th Passed | CBSE Board',
+                        'I have completed by 10th from same Government School'
                       )}
                     </ul>
                   </div>
@@ -226,25 +213,25 @@ export default class Home extends Component {
           </div>
           <div className="row text-center">
             {this.renderServicesCard(
-              "service1 p-5 m-4",
-              "assets/logo-branding.png",
-              "UI/UX Design",
-              "Design is an important aspect in todays digital era and the design of your website or app can help your brand or businesss. We help our clients with UI and UX Design Growth Marketing Mobile & Web Apps.",
-              "0.6s"
+              'service1 p-5 m-4',
+              'assets/logo-branding.png',
+              'UI/UX Design',
+              'Design is an important aspect in todays digital era and the design of your website or app can help your brand or businesss. We help our clients with UI and UX Design Growth Marketing Mobile & Web Apps.',
+              '0.6s'
             )}
             {this.renderServicesCard(
-              "service2 p-5 m-4",
-              "assets/web-develpment.png",
-              "Web Development",
-              "Our custom web development services include both front-end and back-end development. Whether it is enhancing an existing application or new one, my developers team are available.",
-              "0.7s"
+              'service2 p-5 m-4',
+              'assets/web-develpment.png',
+              'Web Development',
+              'Our custom web development services include both front-end and back-end development. Whether it is enhancing an existing application or new one, my developers team are available.',
+              '0.7s'
             )}
             {this.renderServicesCard(
-              "service3 p-5 m-4",
-              "assets/app-develpment.png",
-              "App Development",
-              "We develop mobile apps. My spelialised team of android app development team will come up with the product that user will love to use. We create mobile apps using React Native.",
-              "0.8s"
+              'service3 p-5 m-4',
+              'assets/app-develpment.png',
+              'App Development',
+              'We develop mobile apps. My spelialised team of android app development team will come up with the product that user will love to use. We create mobile apps using React Native.',
+              '0.8s'
             )}
           </div>
         </section>
@@ -261,15 +248,14 @@ export default class Home extends Component {
               <div
                 key={key}
                 className="col-lg-4 col-md-6 portfolioInfoCardWrapper mt-3 wow fadeInUp"
-                data-wow-delay={key / 2 + 0.2 + "s"}
-              >
-                <div style={{ position: "relative" }}>
+                data-wow-delay={key / 2 + 0.2 + 's'}>
+                <div style={{ position: 'relative' }}>
                   <img src={item.headerImage} className="img-fluid" alt="" />
                 </div>
                 <div className="py-2 w-75 borderRadius12 portfolioInfoCard">
                   <p className="text-secondary mb-1 text-center">{item.type}</p>
 
-                  <NavLink to={"/website/" + item.projectId}>
+                  <NavLink to={'/website/' + item.projectId}>
                     <h4 className="text-center txt-595959">{item.title}</h4>
                   </NavLink>
                 </div>
@@ -286,79 +272,43 @@ export default class Home extends Component {
           <div className="row text-center">
             <div className="col-lg-2 col-md-2 col-4 offset-lg-1 offset-md-1 align-self-center">
               <div className="mt-4">
-                <img
-                  src="assets/technologies/react.png"
-                  className="img-fluid"
-                  alt="ReactJs"
-                />
+                <img src="assets/technologies/react.png" className="img-fluid" alt="ReactJs" />
               </div>
             </div>
 
             <div className="col-lg-2 col-md-2 col-4 align-self-center">
               <div className="mt-4">
-                <img
-                  src="assets/technologies/nodejs.png"
-                  className="img-fluid"
-                  alt="NodeJs"
-                />
+                <img src="assets/technologies/nodejs.png" className="img-fluid" alt="NodeJs" />
               </div>
               <div className="mt-4">
-                <img
-                  src="assets/technologies/mongodb.png"
-                  className="img-fluid"
-                  alt="Mongodb"
-                />
+                <img src="assets/technologies/mongodb.png" className="img-fluid" alt="Mongodb" />
               </div>
             </div>
 
             <div className="col-lg-2 col-md-2 col-4 align-self-center">
               <div className="mt-4">
-                <img
-                  src="assets/technologies/html.png"
-                  className="img-fluid"
-                  alt="html5"
-                />
+                <img src="assets/technologies/html.png" className="img-fluid" alt="html5" />
               </div>
               <div className="mt-4">
-                <img
-                  src="assets/technologies/css.png"
-                  className="img-fluid"
-                  alt="css"
-                />
+                <img src="assets/technologies/css.png" className="img-fluid" alt="css" />
               </div>
               <div className="mt-4">
-                <img
-                  src="assets/technologies/jquery.png"
-                  className="img-fluid"
-                  alt="jQuery"
-                />
+                <img src="assets/technologies/jquery.png" className="img-fluid" alt="jQuery" />
               </div>
             </div>
 
             <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
               <div className="mt-4">
-                <img
-                  src="assets/technologies/php.png"
-                  className="img-fluid"
-                  alt="Php"
-                />
+                <img src="assets/technologies/php.png" className="img-fluid" alt="Php" />
               </div>
               <div className="mt-4">
-                <img
-                  src="assets/technologies/mysql.png"
-                  className="img-fluid"
-                  alt="MySql"
-                />
+                <img src="assets/technologies/mysql.png" className="img-fluid" alt="MySql" />
               </div>
             </div>
 
             <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
               <div className="mt-4">
-                <img
-                  src="assets/technologies/wordpress.png"
-                  className="img-fluid"
-                  alt="Wordpress"
-                />
+                <img src="assets/technologies/wordpress.png" className="img-fluid" alt="Wordpress" />
               </div>
             </div>
           </div>

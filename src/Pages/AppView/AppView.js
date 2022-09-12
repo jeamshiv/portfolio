@@ -1,30 +1,28 @@
-import React, { Component } from "react";
-import ContactForm from "../Contact/ContactForm";
-import { Redirect } from "react-router-dom";
-import { AllProjectsData } from "../../MemoryData/ProjectsData";
-import Slider from "react-slick";
+import React, { Component } from 'react';
+import ContactForm from '../../Components/Contact/ContactForm';
+import { Redirect } from 'react-router-dom';
+import { AllProjectsData } from '../../MemoryData/ProjectsData';
+import Slider from 'react-slick';
 
 export default class AppView extends Component {
   state = {
     AppData: [],
     features: [],
     mainContent: [],
-    isRedirect: false,
+    isRedirect: false
   };
 
   componentDidMount = () => {
-    let AppDataFind = AllProjectsData.find(
-      (item) => item.projectId === this.props.match.params.id
-    );
+    let AppDataFind = AllProjectsData.find((item) => item.projectId === this.props.match.params.id);
     this.setState(
       {
         AppData: AppDataFind,
         features: AppDataFind.features,
-        mainContent: AppDataFind.mainContent,
+        mainContent: AppDataFind.mainContent
       },
       () => {
-        console.log("getting app data", this.state.AppData);
-        if (AppDataFind.type === "Website") {
+        console.log('getting app data', this.state.AppData);
+        if (AppDataFind.type === 'Website') {
           this.setState({ isRedirect: true });
         }
       }
@@ -45,36 +43,29 @@ export default class AppView extends Component {
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2,
-          },
+            slidesToShow: 2
+          }
         },
         {
           breakpoint: 520,
           settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
+            slidesToShow: 1
+          }
+        }
+      ]
     };
 
     return (
       <>
-        {this.state.isRedirect ? (
-          <Redirect to={"/website/" + this.props.match.params.id} />
-        ) : null}
+        {this.state.isRedirect ? <Redirect to={'/website/' + this.props.match.params.id} /> : null}
 
-        <section
-          className="container-fluid"
-          id="head"
-          style={{ marginTop: 80 }}
-        >
+        <section className="container-fluid" id="head" style={{ marginTop: 80 }}>
           <div id="head2"></div>
           <div className="row py-5">
             <div
               className="col-lg-6 col-md-6 text-center align-self-center px-3 px-lg-5 mb-lg-0 mb-md-0 mb-5 order-sm-2  js-tilt"
               data-tilt
-              data-wow-delay="0.6s"
-            >
+              data-wow-delay="0.6s">
               <img
                 src={this.state.AppData.headerImage}
                 className="img-fluid banner-image mt-5 mt-sm-0"
@@ -86,14 +77,9 @@ export default class AppView extends Component {
               <div className="pb-5 pl-2 pl-lg-5 pt-lg-5 mt-sm-5">
                 <h1>{this.state.AppData.title}</h1>
                 <p className="mb-4">{this.state.AppData.description}</p>
-                <a
-                  href={this.state.AppData.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="primary-button"
-                >
+                <a href={this.state.AppData.link} target="_blank" rel="noreferrer" className="primary-button">
                   <span className="text-light">Download for Test</span>
-                </a>{" "}
+                </a>{' '}
                 &nbsp;
               </div>
             </div>
@@ -110,10 +96,7 @@ export default class AppView extends Component {
             <div className="row my-3">
               {this.state.features.map((item, index) => (
                 <div className="col-lg-3 col-md-6 col-10 offset-lg-0 offset-md-0 offset-1">
-                  <div
-                    className="shadow-normal py-3 px-2 bg-ffffff mt-4 text-center borderRadius12"
-                    key={index}
-                  >
+                  <div className="shadow-normal py-3 px-2 bg-ffffff mt-4 text-center borderRadius12" key={index}>
                     <i class="fab fa-sketch display-4 mb-3 txt-ffffff gradientBackgroundPrimary p-2 rounded-circle"></i>
                     <h4>{item.title}</h4>
                     <p style={{ fontSize: 14 }}>{item.description}</p>
@@ -126,20 +109,15 @@ export default class AppView extends Component {
           <div
             className="container-fluid"
             style={{
-              backgroundImage: "url(../assets/blobBanner.jpg)",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          >
+              backgroundImage: 'url(../assets/blobBanner.jpg)',
+              backgroundPosition: 'center',
+              backgroundSize: 'cover'
+            }}>
             <div className="container mt-5">
               <div className="row align-items-center">
                 <div className="col-lg-6 order-sm-2">
                   <div>
-                    <img
-                      src="../assets/mobile-12.png"
-                      className="img-fluid"
-                      alt="mobile view"
-                    />
+                    <img src="../assets/mobile-12.png" className="img-fluid" alt="mobile view" />
                   </div>
                 </div>
 
@@ -147,10 +125,9 @@ export default class AppView extends Component {
                   <div>
                     <h2>Most Probably You Are Getting Best App Ever</h2>
                     <p className="mt-4 mb-5">
-                      Cloud based storage for your data backup just log in with
-                      your mail account from play store and using whatever you
-                      want for your business purpose orem ipsum dummy text.
-                      Never missyour chance its just began.
+                      Cloud based storage for your data backup just log in with your mail account from play store and
+                      using whatever you want for your business purpose orem ipsum dummy text. Never missyour chance its
+                      just began.
                     </p>
                   </div>
 
@@ -170,23 +147,16 @@ export default class AppView extends Component {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <p className="text-light">DOWNLOAD APP</p>
-                  <h1 className="text-light">
-                    Lets Get Your Free Copy From Apple and Play Store
-                  </h1>
+                  <h1 className="text-light">Lets Get Your Free Copy From Apple and Play Store</h1>
                   <p className="text-light">
-                    Instant free download from store Cloud based storage for
-                    your data backup just log in with your mail account from
-                    play store and using whatever you want for your business
-                    purpose orem ipsum dummy text.
+                    Instant free download from store Cloud based storage for your data backup just log in with your mail
+                    account from play store and using whatever you want for your business purpose orem ipsum dummy text.
                   </p>
                   <div className="row mb-5">
                     <div className="col-lg-6 col-md-6 col-10 mt-4">
                       <div className="d-flex align-items-center bg-ffffff px-4 py-2 rounded playStoreBtn">
                         <div className="mr-3">
-                          <img
-                            src="../assets/IconPlayStore.png"
-                            alt="Play store icon"
-                          />
+                          <img src="../assets/IconPlayStore.png" alt="Play store icon" />
                         </div>
                         <div>
                           <p className="mb-0">Get It On</p>
@@ -198,10 +168,7 @@ export default class AppView extends Component {
                     <div className="col-lg-6 col-md-6 col-10 mt-4">
                       <div className="d-flex align-items-center bg-ffffff px-4 py-2 rounded playStoreBtn">
                         <div className="mr-3">
-                          <img
-                            src="../assets/IconAppleStore.png"
-                            alt="Apple store"
-                          />
+                          <img src="../assets/IconAppleStore.png" alt="Apple store" />
                         </div>
                         <div>
                           <p className="mb-0">Get It On</p>
@@ -215,17 +182,12 @@ export default class AppView extends Component {
                 <div
                   className="col-lg-6"
                   style={{
-                    backgroundImage: "url(../assets/verticaleSquareShape.png)",
-                    backgroundPosition: "right",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                >
+                    backgroundImage: 'url(../assets/verticaleSquareShape.png)',
+                    backgroundPosition: 'right',
+                    backgroundRepeat: 'no-repeat'
+                  }}>
                   <div className="text-center px-4">
-                    <img
-                      src="../assets/1.png"
-                      className="img-fluid"
-                      alt="banner"
-                    />
+                    <img src="../assets/1.png" className="img-fluid" alt="banner" />
                   </div>
                 </div>
               </div>
@@ -241,46 +203,22 @@ export default class AppView extends Component {
 
           <Slider {...slicksettings}>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen1.jpg"
-                className="img-fluid"
-                alt="demo screen1"
-              />
+              <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen1" />
             </div>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen1.jpg"
-                className="img-fluid"
-                alt="demo screen 2"
-              />
+              <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen 2" />
             </div>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen2.jpg"
-                className="img-fluid"
-                alt="demo screen 3"
-              />
+              <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 3" />
             </div>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen2.jpg"
-                className="img-fluid"
-                alt="demo screen 4"
-              />
+              <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 4" />
             </div>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen1.jpg"
-                className="img-fluid"
-                alt="demo screen 5"
-              />
+              <img src="../assets/demoSceen1.jpg" className="img-fluid" alt="demo screen 5" />
             </div>
             <div className="px-2">
-              <img
-                src="../assets/demoSceen2.jpg"
-                className="img-fluid"
-                alt="demo screen 6"
-              />
+              <img src="../assets/demoSceen2.jpg" className="img-fluid" alt="demo screen 6" />
             </div>
           </Slider>
         </section>

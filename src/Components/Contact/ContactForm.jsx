@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import TextField from "@mui/material/TextField";
-import SyncLoader from "react-spinners/SyncLoader";
-import WOW from "wowjs";
+import React, { useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import SyncLoader from 'react-spinners/SyncLoader';
+import WOW from 'wowjs';
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [username, setUserName] = useState("");
+  const [username, setUserName] = useState('');
 
   useEffect(() => {
     new WOW.WOW({
-      live: false,
+      live: false
     }).init();
   }, []);
 
@@ -35,7 +35,7 @@ export default function ContactForm() {
       setIsLoading(false);
     }, 1000);
 
-    localStorage.setItem("userName", username);
+    localStorage.setItem('userName', username);
   };
 
   // useEffect(() => {
@@ -57,17 +57,8 @@ export default function ContactForm() {
                 <b>SAY SOMETHING</b>
               </p>
 
-              <form
-                method="POST"
-                name="PortfolioContactForm"
-                className="PortfolioContactForm"
-                action="/thank-you"
-              >
-                <input
-                  type="hidden"
-                  name="form-name"
-                  value="PortfolioContactForm"
-                />
+              <form method="POST" name="PortfolioContactForm" className="PortfolioContactForm" action="/thank-you">
+                <input type="hidden" name="form-name" value="PortfolioContactForm" />
 
                 <TextField
                   className="form-control mt-3"
@@ -77,13 +68,7 @@ export default function ContactForm() {
                   onChange={(e) => setUserName(e.target.value)}
                 />
 
-                <TextField
-                  className="form-control mt-3"
-                  name="email"
-                  label="Your Email"
-                  type="email"
-                  required
-                />
+                <TextField className="form-control mt-3" name="email" label="Your Email" type="email" required />
 
                 <TextField
                   className="form-control mt-3"
@@ -92,21 +77,12 @@ export default function ContactForm() {
                   type="number"
                   // inputProps={{ maxLength: 10 }}
                   onInput={(e) => {
-                    e.target.value = Math.max(0, parseInt(e.target.value))
-                      .toString()
-                      .slice(0, 10);
+                    e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 10);
                   }}
                   required
                 />
 
-                <TextField
-                  className="form-control mt-3"
-                  label="Message"
-                  name="message"
-                  multiline
-                  rows={4}
-                  required
-                />
+                <TextField className="form-control mt-3" label="Message" name="message" multiline rows={4} required />
 
                 <div className="mt-5">
                   {isLoading ? (
@@ -114,10 +90,7 @@ export default function ContactForm() {
                       Sending <SyncLoader color="white" size={10} margin={3} />
                     </button>
                   ) : (
-                    <button
-                      className="primary-button"
-                      onClick={() => sendMessageHandler()}
-                    >
+                    <button className="primary-button" onClick={() => sendMessageHandler()}>
                       Send Message
                     </button>
                   )}
@@ -127,21 +100,9 @@ export default function ContactForm() {
           </div>
           <div className="col-lg-4">
             <div className="row px-4">
-              {renderContactCard(
-                "fas fa-map-marker-alt",
-                "My Address",
-                "Faridabad Haryana"
-              )}
-              {renderContactCard(
-                "fas fa-phone-alt",
-                "My Phone",
-                "+91 8750303073"
-              )}
-              {renderContactCard(
-                "far fa-envelope-open",
-                "My Email",
-                "jeamshiv@gmail.com"
-              )}
+              {renderContactCard('fas fa-map-marker-alt', 'My Address', 'Faridabad Haryana')}
+              {renderContactCard('fas fa-phone-alt', 'My Phone', '+91 8750303073')}
+              {renderContactCard('far fa-envelope-open', 'My Email', 'jeamshiv@gmail.com')}
             </div>
           </div>
         </div>

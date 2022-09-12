@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import WOW from "wowjs";
+import WOW from 'wowjs';
 
 export default class Navbar extends Component {
   componentDidMount() {
     new WOW.WOW({
-      live: false,
+      live: false
     }).init();
   }
 
@@ -24,8 +24,7 @@ export default class Navbar extends Component {
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -49,12 +48,7 @@ export default class Navbar extends Component {
               </li>
 
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="https://jeamshiv.blogspot.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a className="nav-link" href="https://jeamshiv.blogspot.com/" target="_blank" rel="noreferrer">
                   Blog
                 </a>
               </li>
