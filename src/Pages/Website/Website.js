@@ -9,7 +9,7 @@ export default function Website(props) {
   const [mainContent, setMainContent] = useState();
 
   useEffect(() => {
-    let WebDataFind = AllProjectsData.find((item) => item.projectId === props.match.params.id);
+    let WebDataFind = AllProjectsData.find(item => item.projectId === props.match.params.id);
     setwebsiteData(WebDataFind);
     setFeatures(WebDataFind?.features);
     setMainContent(WebDataFind?.mainContent);

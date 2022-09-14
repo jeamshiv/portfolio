@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
@@ -22,7 +23,7 @@ function App() {
 
           <Route
             path="/website/:id"
-            render={(props) => (
+            render={props => (
               <>
                 <Website {...props} />
               </>
@@ -30,7 +31,7 @@ function App() {
 
           <Route
             path="/app/:id"
-            render={(props) => (
+            render={props => (
               <>
                 <AppView {...props} />
               </>

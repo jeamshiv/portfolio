@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 export default function Blog() {
-  const [blogData, setBlogData] = useState();
+  const [blogData, setBlogData] = useState([]);
+  const [showCurrentPost, setShowCurrentPost] = useState(6);
   // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -25,15 +26,19 @@ export default function Blog() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log('getting blog data len', blogData?.length);
+  }, [blogData]);
+
   return (
     <>
-      <section className="container py-5 my-5">
+      <section className="container pt-5 my-5">
         <div className="text-center mb-3">
           <h5>Latest Blog</h5>
           <h1 className="style-title">My Blog</h1>
         </div>
         <div className="row" id="blogdata">
-          {blogData?.slice(0, 6).map((item, index) => (
+          {blogData?.slice(0, showCurrentPost).map((item, index) => (
             <div className="col-lg-4 col-md-6 pt-4" key={index}>
               <div className="card">
                 <div className="imgwrapper">
@@ -60,6 +65,13 @@ export default function Blog() {
           ))}
         </div>
       </section>
+      {showCurrentPost === 6 && (
+        <div className="container text-center">
+          <button className="btn primary-button" onClick={() => setShowCurrentPost(blogData?.length + 1)}>
+            Load More Posts
+          </button>
+        </div>
+      )}
     </>
   );
 }
