@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { AllProjectsData } from '../../MemoryData/ProjectsData';
-
 import WOW from 'wowjs';
+import ProjectsList from '../../Components/ProjectsList/ProjectsList';
 
 export default class Portfolio extends Component {
-  state = {
-    portfolioData: []
-  };
-
   componentDidMount() {
     new WOW.WOW({
       live: false
     }).init();
-
-    this.setState({ portfolioData: AllProjectsData });
   }
 
   render() {
@@ -52,31 +44,7 @@ export default class Portfolio extends Component {
           </div>
         </div>
 
-        <section className="px-3 mt-5 py-5">
-          <div className="text-center mb-3">
-            <h5>Portfolio</h5>
-            <h1 className="style-title">My Projects</h1>
-          </div>
-          <div className="row">
-            {this.state.portfolioData.map((item, key) => (
-              <div
-                key={key}
-                className="col-lg-4 col-md-6 portfolioInfoCardWrapper mt-3 wow fadeInUp"
-                data-wow-duration={key + 0.2 + 's'}>
-                <div style={{ position: 'relative' }}>
-                  <img src={item.headerImage} className="img-fluid" alt="header " />
-                </div>
-                <div className="py-2 w-75 borderRadius12 portfolioInfoCard">
-                  <p className="text-secondary mb-1 text-center">{item.type}</p>
-
-                  <NavLink to={`/${item.type}/${item.projectId}`}>
-                    <h4 className="text-center txt-595959">{item.title}</h4>
-                  </NavLink>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <ProjectsList />
       </>
     );
   }

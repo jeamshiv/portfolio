@@ -1,40 +1,25 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import FeaturedWork from '../../Components/FeaturedWork/FeaturedWork';
 import ContactForm from '../../Components/Contact/ContactForm';
-import { AllProjectsData } from '../../MemoryData/ProjectsData';
 
 import WOW from 'wowjs';
 import Blog from '../../Components/Blog/Blog';
+import HeroSection from '../../Components/HeroSection/HeroSection';
+import ServicesCard from '../../Components/ServicesCard/ServicesCard';
+import ProjectsList from '../../Components/ProjectsList/ProjectsList';
+import TechnologiesSection from '../../Components/TechnologiesSection/TechnologiesSection';
 
 export default class Home extends Component {
   state = {
     isLoading: false,
-    yourName: '',
-    portfolioData: []
+    yourName: ''
   };
 
   componentDidMount() {
-    this.setState({ portfolioData: AllProjectsData });
-
     new WOW.WOW({
       live: false
     }).init();
   }
-
-  renderWhatIDo = (icon, title, des) => {
-    return (
-      <div className="col-lg-6 d-flex mt-3 align-items-center justify-content-center">
-        <div>
-          <img src={icon} className="img-responsive" alt="What I do" />
-        </div>
-        <div className="ml-3">
-          <h4>{title}</h4>
-          <p>{des}</p>
-        </div>
-      </div>
-    );
-  };
 
   renderExperience = (company, duration, des, animeDuration) => {
     return (
@@ -62,18 +47,6 @@ export default class Home extends Component {
     );
   };
 
-  renderServicesCard = (classname, icon, title, des, animeDelay) => {
-    return (
-      <div className="col-lg-4 wow fadeInUp" data-wow-delay={animeDelay}>
-        <div className={classname}>
-          <img src={icon} className="img-fluid pb-2" alt="Services" />
-          <h4>{title}</h4>
-          <p>{des}</p>
-        </div>
-      </div>
-    );
-  };
-
   render() {
     // const protfolioSlick = {
     //     dots: true,
@@ -89,58 +62,7 @@ export default class Home extends Component {
 
     return (
       <>
-        <section className="container-fluid" id="head">
-          <div id="head2"></div>
-          <div className="row">
-            <div
-              className="col-lg-6 col-md-6 text-center align-self-center order-sm-2 wow bounceInDown js-tilt"
-              data-tilt
-              data-wow-delay="0.6s">
-              <img
-                src="../assets/boywithcomputerpink.png"
-                className="img-fluid banner-image mt-5 mt-sm-0"
-                alt="jeamshiv portfolio header"
-              />
-            </div>
-
-            <div className="col-lg-6 col-md-6 align-self-center order-sm-1 wow fadeInLeft" data-wow-delay="1s">
-              <div className="pb-5 pl-2 pl-lg-5 pt-lg-5 mt-sm-5">
-                <h5 className="pb-0">
-                  HELLO, IM JEAMSHIV{' '}
-                  <span className="wave">
-                    <img src="../assets/hand.png" width="40px" alt="" />
-                  </span>
-                </h5>
-                <h1>Web Developer</h1>
-                <p>I am React Developer and React Native App Developer.</p>
-                <a href="#contact">
-                  <button className="secondary-button borderRadius30">Contact Me</button>
-                </a>
-                &nbsp;
-                <a href="/assets/resume.pdf" download="Shivam Resume" className="primary-button-outline borderRadius30">
-                  Get CV
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* <section className="container my-5 py-4 bg-light" style={{borderRadius: 12}}>
-                <div className="text-center mb-5">
-                    <h5>WHAT I DO</h5>
-                    <h1 className="style-title">SPECILIZING IN</h1>
-                </div>
-                <div className="row px-lg-5 px-2">
-
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Web Design', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Development', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Clean Code', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Free SEO', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Fully Responsive', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    {this.renderWhatIDo('https://via.placeholder.com/80x80.png?text=ICON', 'Custome Support', 'Landing Pages, User Flow, Wireframing. Prototyping. Mobile App Design.')}
-                    
-                </div>
-            </section> */}
+        <HeroSection image="../assets/boywithcomputerpink.png" />
 
         <section className="container my-5 qualification">
           <div className="text-center mb-3">
@@ -212,110 +134,36 @@ export default class Home extends Component {
             <h1 className="style-title">Services</h1>
           </div>
           <div className="row text-center">
-            {this.renderServicesCard(
-              'service1 p-5 m-4',
-              'assets/logo-branding.png',
-              'UI/UX Design',
-              'Design is an important aspect in todays digital era and the design of your website or app can help your brand or businesss. We help our clients with UI and UX Design Growth Marketing Mobile & Web Apps.',
-              '0.6s'
-            )}
-            {this.renderServicesCard(
-              'service2 p-5 m-4',
-              'assets/web-develpment.png',
-              'Web Development',
-              'Our custom web development services include both front-end and back-end development. Whether it is enhancing an existing application or new one, my developers team are available.',
-              '0.7s'
-            )}
-            {this.renderServicesCard(
-              'service3 p-5 m-4',
-              'assets/app-develpment.png',
-              'App Development',
-              'We develop mobile apps. My spelialised team of android app development team will come up with the product that user will love to use. We create mobile apps using React Native.',
-              '0.8s'
-            )}
+            <ServicesCard
+              classname="service1"
+              icon="assets/logo-branding.png"
+              title="UI/UX Design"
+              des="Design is an important aspect in todays digital era and the design of your website or app can help your brand or businesss. We help our clients with UI and UX Design Growth Marketing Mobile & Web Apps."
+              animeDelay="0.6s"
+            />
+
+            <ServicesCard
+              classname="service2"
+              icon="assets/web-develpment.png"
+              title="Web Development"
+              des="Our custom web development services include both front-end and back-end development. Whether it is enhancing an existing application or new one, my developers team are available."
+              animeDelay="0.7s"
+            />
+
+            <ServicesCard
+              classname="service3"
+              icon="assets/app-develpment.png"
+              title="App Development"
+              des="We develop mobile apps. My spelialised team of android app development team will come up with the product that user will love to use. We create mobile apps using React Native."
+              animeDelay="0.6s"
+            />
           </div>
         </section>
 
         <FeaturedWork />
-
-        <section className="px-3 pt-5">
-          <div className="text-center mb-3">
-            <h5>Portfolio</h5>
-            <h1 className="style-title">My Projects</h1>
-          </div>
-          <div className="row">
-            {this.state.portfolioData.map((item, key) => (
-              <div
-                key={key}
-                className="col-lg-4 col-md-6 portfolioInfoCardWrapper mt-3 wow fadeInUp"
-                data-wow-delay={key / 2 + 0.2 + 's'}>
-                <div style={{ position: 'relative' }}>
-                  <img src={item.headerImage} className="img-fluid" alt="" />
-                </div>
-                <div className="py-2 w-75 borderRadius12 portfolioInfoCard">
-                  <p className="text-secondary mb-1 text-center">{item.type}</p>
-
-                  <NavLink to={'/website/' + item.projectId}>
-                    <h4 className="text-center txt-595959">{item.title}</h4>
-                  </NavLink>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="container-fluid technologies my-5 py-5 ">
-          <div className="text-center mb-3">
-            <h5>I love latest</h5>
-            <h1 className="style-title">Technologies</h1>
-          </div>
-          <div className="row text-center">
-            <div className="col-lg-2 col-md-2 col-4 offset-lg-1 offset-md-1 align-self-center">
-              <div className="mt-4">
-                <img src="assets/technologies/react.png" className="img-fluid" alt="ReactJs" />
-              </div>
-            </div>
-
-            <div className="col-lg-2 col-md-2 col-4 align-self-center">
-              <div className="mt-4">
-                <img src="assets/technologies/nodejs.png" className="img-fluid" alt="NodeJs" />
-              </div>
-              <div className="mt-4">
-                <img src="assets/technologies/mongodb.png" className="img-fluid" alt="Mongodb" />
-              </div>
-            </div>
-
-            <div className="col-lg-2 col-md-2 col-4 align-self-center">
-              <div className="mt-4">
-                <img src="assets/technologies/html.png" className="img-fluid" alt="html5" />
-              </div>
-              <div className="mt-4">
-                <img src="assets/technologies/css.png" className="img-fluid" alt="css" />
-              </div>
-              <div className="mt-4">
-                <img src="assets/technologies/jquery.png" className="img-fluid" alt="jQuery" />
-              </div>
-            </div>
-
-            <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
-              <div className="mt-4">
-                <img src="assets/technologies/php.png" className="img-fluid" alt="Php" />
-              </div>
-              <div className="mt-4">
-                <img src="assets/technologies/mysql.png" className="img-fluid" alt="MySql" />
-              </div>
-            </div>
-
-            <div className="col-lg-2 col-md-2 col-4 align-self-center nagetivemargin120">
-              <div className="mt-4">
-                <img src="assets/technologies/wordpress.png" className="img-fluid" alt="Wordpress" />
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <ProjectsList />
+        <TechnologiesSection />
         <Blog />
-
         <ContactForm />
       </>
     );
