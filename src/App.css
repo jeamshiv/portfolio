@@ -456,46 +456,23 @@ section.technologies .mt-4:hover {
 }
 
 .wrapper,
-.contact .row .col-12,
-.experience_card .col-12 .d-flex {
+.contact .row .col-12 {
   box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 10%);
   background-color: #fff;
   transition: all 0.6s;
-  border-radius: 15px;
 }
 
-.experience_card .experience1 .d-flex {
-  background-image: url('../public/assets/bg-experience1.png');
-  background-repeat: no-repeat;
-  background-position: right top;
-}
-
-.experience_card .experience2 .d-flex {
-  background-image: url('../public/assets/bg-experience2.png');
-  background-repeat: no-repeat;
-  background-position: right bottom;
-}
-
-.experience_card .experience3 .d-flex {
-  background-image: url('../public/assets/bg-experience3.png');
-  background-repeat: no-repeat;
-  background-position: right top;
-}
-
-.contact .row .col-12 i,
-.experience_card .col-12 .d-flex div i {
+.contact .row .col-12 i {
   font-size: 24px;
   color: rgb(95, 25, 221);
   transition: all 0.6s;
 }
 
-.contact .row .col-12:hover,
-.experience_card .col-12 .d-flex:hover {
+.contact .row .col-12:hover {
   box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 30%);
 }
 
-.contact .row .col-12:hover i,
-.experience_card .col-12:hover .d-flex i {
+.contact .row .col-12:hover i {
   color: rgb(240 93 123);
 }
 

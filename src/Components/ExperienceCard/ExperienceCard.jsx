@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ExperienceCard.module.css';
 
 export default function ExperienceCard() {
   const experienceData = [
@@ -22,35 +23,26 @@ export default function ExperienceCard() {
     }
   ];
 
-  const renderExperience = (company, duration, des, animeDuration) => {
-    return (
-      <div className="col-12 mt-3 wow bounceInLeft" data-wow-duration={animeDuration}>
-        <div className="d-flex py-3">
-          <div className="mx-4 align-self-center">
-            <i className="fas fa-code"></i>
-          </div>
-          <div className="pr-1 pr-sm-2">
-            <h5>{company}</h5>
-            <p className="text-secondary mb-1">{duration}</p>
-            <p className="pr-lg-4">{des}</p>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <>
       <div className="col-md-6 pr-lg-5 pr-md-5 pt-4">
         <div className="text-center mt-5">
           <h3>My Experience</h3>
         </div>
-        <div className="row my-4 experience_card">
+        <div className={`row my-4`}>
           {experienceData.map((item, index) => (
             <div
-              className={`col-12 mt-3 wow bounceInLeft experience${index + 1}`}
+              className={`col-12 mt-3 wow bounceInLeft ${
+                index === 0
+                  ? styles.experience1
+                  : index === 1
+                  ? styles.experience2
+                  : index === 2
+                  ? styles.experience3
+                  : null
+              }`}
               data-wow-duration={item.animationDur}>
-              <div className="d-flex py-3">
+              <div className={`d-flex py-3 ${styles.experience_inner}`}>
                 <div className="mx-4 align-self-center">
                   <i className="fas fa-code"></i>
                 </div>
