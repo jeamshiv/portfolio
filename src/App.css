@@ -394,6 +394,12 @@ section.services .row .col-lg-4 div:hover {
   transform-origin: top;
 }
 
+section.technologies {
+  background-image: url('../public/assets/dots-1.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
 section.technologies .mt-4 {
   box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 10%);
   border-radius: 12px;
@@ -416,7 +422,7 @@ section.technologies .mt-4:hover {
 #blogdata .card {
   overflow: hidden;
   box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 10%);
-  border-radius: 20px;
+  border-radius: 15px 15px 0 0;
 }
 
 #blogdata .card a {
@@ -427,17 +433,17 @@ section.technologies .mt-4:hover {
 #blogdata .imgwrapper {
   min-height: 195px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 #blogdata .card img,
 #blogdata .card {
-  transition: all 1s;
+  transition: all 0.4s ease;
 }
 
 #blogdata .card:hover img {
-  transition: all 1s;
-  transform: scale(1.2);
+  transition: all 0.4s ease;
+  transform: scale(1.1);
 }
 
 #blogdata .card:hover {
@@ -455,6 +461,25 @@ section.technologies .mt-4:hover {
   box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 10%);
   background-color: #fff;
   transition: all 0.6s;
+  border-radius: 15px;
+}
+
+.experience_card .experience1 .d-flex {
+  background-image: url('../public/assets/bg-experience1.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.experience_card .experience2 .d-flex {
+  background-image: url('../public/assets/bg-experience2.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.experience_card .experience3 .d-flex {
+  background-image: url('../public/assets/bg-experience3.png');
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 .contact .row .col-12 i,

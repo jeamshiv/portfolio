@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function TechnologiesSection() {
   return (
-    <section className="container-fluid technologies my-5 py-5 ">
+    <section className="container-fluid technologies my-5 py-5">
       <div className="text-center mb-3">
         <h5>I love latest</h5>
         <h1 className="style-title">Technologies</h1>

@@ -8,6 +8,7 @@ import HeroSection from '../../Components/HeroSection/HeroSection';
 import ServicesCard from '../../Components/ServicesCard/ServicesCard';
 import ProjectsList from '../../Components/ProjectsList/ProjectsList';
 import TechnologiesSection from '../../Components/TechnologiesSection/TechnologiesSection';
+import ExperienceCard from '../../Components/ExperienceCard/ExperienceCard';
 
 export default class Home extends Component {
   state = {
@@ -20,23 +21,6 @@ export default class Home extends Component {
       live: false
     }).init();
   }
-
-  renderExperience = (company, duration, des, animeDuration) => {
-    return (
-      <div className="col-12 mt-3 wow bounceInLeft" data-wow-duration={animeDuration}>
-        <div className="d-flex py-3">
-          <div className="mx-4 align-self-center">
-            <i className="fas fa-code"></i>
-          </div>
-          <div className="pr-1 pr-sm-2">
-            <h5>{company}</h5>
-            <p className="text-secondary mb-1">{duration}</p>
-            <p className="pr-lg-4">{des}</p>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   renderTimeline = (duration, title, des) => {
     return (
@@ -70,31 +54,7 @@ export default class Home extends Component {
             <h1 className="style-title">MY EDUCATION</h1>
           </div>
           <div className="row">
-            <div className="col-md-6 pr-lg-5 pr-md-5 pt-4">
-              <div className="text-center mt-5">
-                <h3>My Experience</h3>
-              </div>
-              <div className="row my-4 experience_card">
-                {this.renderExperience(
-                  'ScaleupAlly',
-                  'Jr. Software Engineer | Dec 2021 - Present',
-                  'The passionate mind behind MERN Stack.',
-                  '0.3s'
-                )}
-                {this.renderExperience(
-                  'Cyberflow',
-                  'Web Developer | May - Dec 2021',
-                  'Working with lastest technologies, UI, React, and React Native app development.',
-                  '0.6s'
-                )}
-                {this.renderExperience(
-                  'Innovatia',
-                  'Web Developer | Oct - Nov 2020',
-                  'I was Working there as PHP , WordPress & Frontend Web Developer.',
-                  '1.2s'
-                )}
-              </div>
-            </div>
+            <ExperienceCard />
             <div className="col-md-6">
               <div className="card">
                 <div className="card-body pt-4">
