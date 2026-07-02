@@ -1,11 +1,13 @@
 export const siteConfig = {
   name: 'Jeamshiv',
-  title: 'React, Next.js & React Native Developer',
-  tagline: 'Building scalable web applications and mobile experiences with React, Next.js, and MERN architecture.',
+  fullName: 'Shivam Kumar',
+  title: 'Full Stack & React Native Developer',
+  tagline:
+    'I craft scalable, high-performance web and mobile applications with React, Next.js, React Native, and the MERN stack — from pixel-perfect UIs to robust APIs and payment integrations.',
   description:
-    'Experienced full stack developer skilled in React, Next.js, React Native, Node.js, and AWS, delivering polished digital products and business-grade UX.',
+    'Shivam Kumar (Jeamshiv) — Full Stack & React Native developer with 5+ years building scalable web and mobile apps using React, Next.js, Node.js, GraphQL, and AWS.',
   siteUrl: 'https://jeamshiv.netlify.app',
-  greeting: 'Hello, I\'m Jeamshiv',
+  greeting: 'Hello, I\'m',
   email: 'shivamkumar06952@gmail.com',
   phone: '+91 8750303073',
   location: 'Faridabad, Haryana',

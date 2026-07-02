@@ -62,7 +62,17 @@ export function ExperienceCardList() {
                     {item.company}
                   </h4>
                   <p className="mt-1 text-sm font-medium text-muted">{item.role}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{item.description}</p>
+                  <ul className="mt-2 space-y-1.5">
+                    {item.highlights.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2 text-sm leading-relaxed text-muted"
+                      >
+                        <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </Card>

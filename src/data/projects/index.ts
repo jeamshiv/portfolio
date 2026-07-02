@@ -62,6 +62,8 @@ export function getFeaturedProject() {
     description: featuredProjectConfig.description ?? project.description,
     ctaLabel: featuredProjectConfig.ctaLabel ?? 'View Project',
     detailPath: getProjectDetailPath(project),
+    techLabels: resolveTechnologies(project.technologies),
+    features: project.features,
   }
 }
 

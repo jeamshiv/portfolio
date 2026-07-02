@@ -3,21 +3,28 @@ export interface Technology {
   image: string
 }
 
-export const technologiesData: Technology[] = [
-  { name: 'React', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Next.js', image: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-line.svg' },
-  { name: 'React Native', image: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg' },
-  { name: 'Node.js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'Tailwind CSS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Bootstrap', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg' },
-  { name: 'Ant Design', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/antdesign/antdesign-original.svg' },
-  { name: 'JavaScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { name: 'MySQL', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'MongoDB', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-  { name: 'GraphQL', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
-  { name: 'REST API', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'Git', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  { name: 'AWS', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
-  { name: 'ChatGPT', image: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
+const ICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
+
+const react: Technology = { name: 'React', image: `${ICON}/react/react-original.svg` }
+const nextjs: Technology = { name: 'Next.js', image: `${ICON}/nextjs/nextjs-original.svg` }
+const reactNative: Technology = { name: 'React Native', image: `${ICON}/react/react-original.svg` }
+const nodejs: Technology = { name: 'Node.js', image: `${ICON}/nodejs/nodejs-original.svg` }
+const javascript: Technology = { name: 'JavaScript', image: `${ICON}/javascript/javascript-original.svg` }
+const tailwind: Technology = { name: 'Tailwind CSS', image: `${ICON}/tailwindcss/tailwindcss-original.svg` }
+const bootstrap: Technology = { name: 'Bootstrap', image: `${ICON}/bootstrap/bootstrap-original.svg` }
+const antdesign: Technology = { name: 'Ant Design', image: `${ICON}/antdesign/antdesign-original.svg` }
+const mysql: Technology = { name: 'MySQL', image: `${ICON}/mysql/mysql-original.svg` }
+const mongodb: Technology = { name: 'MongoDB', image: `${ICON}/mongodb/mongodb-original.svg` }
+const graphql: Technology = { name: 'GraphQL', image: `${ICON}/graphql/graphql-plain.svg` }
+const git: Technology = { name: 'Git', image: `${ICON}/git/git-original.svg` }
+const aws: Technology = { name: 'AWS', image: `${ICON}/amazonwebservices/amazonwebservices-original-wordmark.svg` }
+
+// Vertical columns render as a staggered "diamond": each column is centered
+// vertically, so the 1 → 3 → 5 → 3 → 1 heights fan out symmetrically.
+export const technologyColumns: Technology[][] = [
+  [react],
+  [nextjs, reactNative, javascript],
+  [nodejs, tailwind, mongodb, mysql, graphql],
+  [bootstrap, antdesign, git],
+  [aws],
 ]

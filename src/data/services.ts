@@ -1,4 +1,4 @@
-import { Palette, Smartphone, Globe } from 'lucide-react'
+import { Globe, Server, Smartphone } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 export interface Service {
@@ -21,13 +21,13 @@ export const servicesData: Service[] = [
     title: 'MERN & API Engineering',
     description:
       'Full-stack development with Node.js, Express, MongoDB, REST and GraphQL APIs to power scalable backend systems.',
-    icon: Smartphone,
+    icon: Server,
   },
   {
     id: 'mobile-app',
     title: 'React Native Mobile Apps',
     description:
       'Cross-platform mobile applications built with React Native, focusing on polished UI, performance, and native feel.',
-    icon: Palette,
+    icon: Smartphone,
   },
 ]

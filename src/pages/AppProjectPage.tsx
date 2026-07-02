@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { Smartphone } from 'lucide-react'
 import { Navigate, useParams } from 'react-router-dom'
+import { BlogSection } from '../components/sections/BlogSection'
 import { ContactSection } from '../components/sections/ContactSection'
 import {
+  ProjectContactCta,
   ProjectContentSection,
   ProjectDetailHero,
   ProjectFeatures,
@@ -77,6 +79,8 @@ export function AppProjectPage() {
       </section>
 
       <ProjectScreenshots project={project} />
+      <ProjectContactCta />
+      <BlogSection />
       <ContactSection />
     </motion.main>
   )

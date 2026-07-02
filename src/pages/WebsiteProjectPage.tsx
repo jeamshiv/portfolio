@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Navigate, useParams } from 'react-router-dom'
+import { BlogSection } from '../components/sections/BlogSection'
 import { ContactSection } from '../components/sections/ContactSection'
 import {
+  ProjectContactCta,
   ProjectContentSection,
   ProjectDetailHero,
   ProjectFeatures,
@@ -31,6 +33,8 @@ export function WebsiteProjectPage() {
       <ProjectDetailHero project={project} ctaLabel="Live Preview" />
       <ProjectFeatures project={project} title="Website Features" />
       <ProjectContentSection project={project} headline="Built for the web" />
+      <ProjectContactCta />
+      <BlogSection />
       <ContactSection />
     </motion.main>
   )

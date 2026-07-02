@@ -29,7 +29,15 @@ export const movieappShiv: ProjectDetail = {
       body: 'Leverages React Native for a native-feeling mobile experience with shared codebase.',
     },
   ],
-  screenshots: [],
+  // Add / remove screenshots freely — the slider is fully dynamic.
+  screenshots: [
+    { image: '/assets/demoSceen1.jpg', caption: '' },
+    { image: '/assets/demoSceen2.jpg', caption: '' },
+    { image: '/assets/demoSceen1.jpg', caption: '' },
+    { image: '/assets/demoSceen2.jpg', caption: '' },
+    { image: '/assets/demoSceen1.jpg', caption: '' },
+    { image: '/assets/demoSceen2.jpg', caption: '' },
+  ],
   fullScreenshot: null,
   order: 5,
   featured: true,
