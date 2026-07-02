@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --color-background: #fafafa;
+  --color-foreground: #0f0f14;
+  --color-muted: #71717a;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-accent: #7c3aed;
+  --color-accent-light: #a78bfa;
+  --color-accent-muted: rgba(124, 58, 237, 0.12);
+}
+
+.dark {
+  --color-background: #08080d;
+  --color-foreground: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-surface: #111118;
+  --color-surface-elevated: #18181f;
+  --color-border: #27272a;
+  --color-accent: #8b5cf6;
+  --color-accent-light: #c4b5fd;
+  --color-accent-muted: rgba(139, 92, 246, 0.15);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-linear-to-r from-accent to-accent-light bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply border border-border/60 bg-surface/70 backdrop-blur-xl;
+  }
+
+  .section-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+  }
+}
