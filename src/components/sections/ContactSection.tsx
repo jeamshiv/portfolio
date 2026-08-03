@@ -31,11 +31,15 @@ const contactInfo = [
   },
 ] as const
 
+/** Must match the Netlify form name (and the static form in index.html). */
+const NETLIFY_FORM_NAME = 'PortfolioContactForm'
+
 interface ContactFormValues {
   name: string
   email: string
   phone: string
   message: string
+  'bot-field': string
 }
 
 const initialValues: ContactFormValues = {
@@ -43,6 +47,13 @@ const initialValues: ContactFormValues = {
   email: '',
   phone: '',
   message: '',
+  'bot-field': '',
+}
+
+function encodeFormBody(data: Record<string, string>) {
+  return Object.entries(data)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join('&')
 }
 
 const MAX_LENGTHS = {
@@ -78,15 +89,39 @@ const inputClasses =
 
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const handleSubmit = async (
-    _values: ContactFormValues,
-    { resetForm }: FormikHelpers<ContactFormValues>,
+    values: ContactFormValues,
+    { resetForm, setSubmitting }: FormikHelpers<ContactFormValues>,
   ) => {
-    await new Promise((resolve) => setTimeout(resolve, 1200))
+    setSubmitError(null)
 
-    setIsSubmitted(true)
-    resetForm()
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormBody({
+          'form-name': NETLIFY_FORM_NAME,
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          'bot-field': values['bot-field'],
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed (${response.status})`)
+      }
+
+      setIsSubmitted(true)
+      resetForm()
+    } catch {
+      setSubmitError('Something went wrong. Please try again or email me directly.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -123,13 +158,35 @@ export function ContactSection() {
                   </motion.div>
                 )}
 
+                {submitError && (
+                  <div
+                    className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400"
+                    role="alert"
+                  >
+                    {submitError}
+                  </div>
+                )}
+
                 <Formik
                   initialValues={initialValues}
                   validationSchema={validationSchema}
                   onSubmit={handleSubmit}
                 >
                   {({ isSubmitting, values }) => (
-                    <Form className="space-y-5" noValidate>
+                    <Form
+                      className="space-y-5"
+                      name={NETLIFY_FORM_NAME}
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      noValidate
+                    >
+                      <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
+                      <p className="hidden" aria-hidden="true">
+                        <label>
+                          Don’t fill this out:
+                          <Field name="bot-field" tabIndex={-1} autoComplete="off" />
+                        </label>
+                      </p>
                       <div className="grid gap-5 sm:grid-cols-2">
                         <div>
                           <label htmlFor="name" className="mb-1.5 block text-sm font-medium">
