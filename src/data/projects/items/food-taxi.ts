@@ -8,8 +8,7 @@ export const foodTaxi: ProjectDetail = {
   shortDescription: 'React website for food and taxi services provider.',
   description: 'Website created in React for a food and taxi services provider.',
   liveUrl: 'https://ahooptie.herokuapp.com/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/FoodTaxi.webp',
+  featureImage: '/projects/food-taxi/feature.webp',
   technologies: ['html', 'css', 'javascript', 'react', 'bootstrap'],
   features: [
     { title: 'Service Booking', description: 'Browse and book food or taxi services.' },
@@ -24,6 +23,5 @@ export const foodTaxi: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 6,
 }

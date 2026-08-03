@@ -5,17 +5,13 @@ import { fadeInUp, slideInRight, staggerContainer } from '../../lib/animations'
 import { scrollToSection } from '../../lib/utils'
 import { Button } from '../ui/Button'
 import {
-  FacebookIcon,
   GithubIcon,
-  InstagramIcon,
   LinkedinIcon,
 } from '../ui/SocialIcons'
 
 const socials = [
   { label: 'GitHub', href: siteConfig.social.github, Icon: GithubIcon },
   { label: 'LinkedIn', href: siteConfig.social.linkedin, Icon: LinkedinIcon },
-  { label: 'Instagram', href: siteConfig.social.instagram, Icon: InstagramIcon },
-  { label: 'Facebook', href: siteConfig.social.facebook, Icon: FacebookIcon },
 ]
 
 const stats = [

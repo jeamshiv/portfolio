@@ -1,6 +1,8 @@
+import { Formik, Form, Field, ErrorMessage, type FormikHelpers } from 'formik'
 import { motion } from 'framer-motion'
 import { Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
+import * as Yup from 'yup'
 import { siteConfig } from '../../data/site'
 import { fadeInUp, staggerContainer } from '../../lib/animations'
 import { cn } from '../../lib/utils'
@@ -29,19 +31,62 @@ const contactInfo = [
   },
 ] as const
 
+interface ContactFormValues {
+  name: string
+  email: string
+  phone: string
+  message: string
+}
+
+const initialValues: ContactFormValues = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+}
+
+const MAX_LENGTHS = {
+  name: 50,
+  email: 100,
+  phone: 10,
+  message: 500,
+} as const
+
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .max(MAX_LENGTHS.name, `Name must be at most ${MAX_LENGTHS.name} characters`)
+    .required('Please enter your name'),
+  email: Yup.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .max(MAX_LENGTHS.email, `Email must be at most ${MAX_LENGTHS.email} characters`)
+    .required('Please enter your email'),
+  phone: Yup.string()
+    .matches(/^\d{10}$/, 'Please enter a valid 10-digit phone number')
+    .required('Please enter your phone number'),
+  message: Yup.string()
+    .trim()
+    .min(10, 'Message must be at least 10 characters')
+    .max(MAX_LENGTHS.message, `Message must be at most ${MAX_LENGTHS.message} characters`)
+    .required('Please enter a message'),
+})
+
+const inputClasses =
+  'w-full rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20'
+
 export function ContactSection() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
+  const handleSubmit = async (
+    _values: ContactFormValues,
+    { resetForm }: FormikHelpers<ContactFormValues>,
+  ) => {
     await new Promise((resolve) => setTimeout(resolve, 1200))
 
-    setIsSubmitting(false)
     setIsSubmitted(true)
-    e.currentTarget.reset()
+    resetForm()
   }
 
   return (
@@ -78,82 +123,99 @@ export function ContactSection() {
                   </motion.div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="name" className="mb-1.5 block text-sm font-medium">
-                        Your Name
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        autoComplete="name"
-                        className="w-full rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
-                        Your Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        className="w-full rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={validationSchema}
+                  onSubmit={handleSubmit}
+                >
+                  {({ isSubmitting, values }) => (
+                    <Form className="space-y-5" noValidate>
+                      <div className="grid gap-5 sm:grid-cols-2">
+                        <div>
+                          <label htmlFor="name" className="mb-1.5 block text-sm font-medium">
+                            Your Name
+                          </label>
+                          <Field
+                            id="name"
+                            name="name"
+                            type="text"
+                            autoComplete="name"
+                            maxLength={MAX_LENGTHS.name}
+                            className={inputClasses}
+                            placeholder="John Doe"
+                          />
+                          <ErrorMessage name="name" component="p" className="mt-1.5 text-xs text-red-500" />
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
+                            Your Email
+                          </label>
+                          <Field
+                            id="email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            maxLength={MAX_LENGTHS.email}
+                            className={inputClasses}
+                            placeholder="john@example.com"
+                          />
+                          <ErrorMessage name="email" component="p" className="mt-1.5 text-xs text-red-500" />
+                        </div>
+                      </div>
 
-                  <div>
-                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
-                      Your Phone
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      autoComplete="tel"
-                      maxLength={10}
-                      className="w-full rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-                      placeholder="9876543210"
-                    />
-                  </div>
+                      <div>
+                        <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
+                          Your Phone
+                        </label>
+                        <Field
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          autoComplete="tel"
+                          maxLength={MAX_LENGTHS.phone}
+                          className={inputClasses}
+                          placeholder="9876543210"
+                        />
+                        <ErrorMessage name="phone" component="p" className="mt-1.5 text-xs text-red-500" />
+                      </div>
 
-                  <div>
-                    <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={4}
-                      className="w-full resize-none rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
+                      <div>
+                        <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
+                          Message
+                        </label>
+                        <Field
+                          as="textarea"
+                          id="message"
+                          name="message"
+                          rows={4}
+                          maxLength={MAX_LENGTHS.message}
+                          className={cn(inputClasses, 'resize-none')}
+                          placeholder="Tell me about your project..."
+                        />
+                        <div className="mt-1.5 flex items-center justify-between gap-2">
+                          <ErrorMessage name="message" component="p" className="text-xs text-red-500" />
+                          <span className="ml-auto shrink-0 text-xs text-muted">
+                            {values.message.length}/{MAX_LENGTHS.message}
+                          </span>
+                        </div>
+                      </div>
 
-                  <Button type="submit" disabled={isSubmitting} className="min-w-[160px]">
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+                      <Button type="submit" disabled={isSubmitting} className="min-w-40">
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="h-4 w-4" />
+                            Send Message
+                          </>
+                        )}
+                      </Button>
+                    </Form>
+                  )}
+                </Formik>
               </Card>
             </motion.div>
           </motion.div>

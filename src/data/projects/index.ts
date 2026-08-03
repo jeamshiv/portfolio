@@ -3,15 +3,21 @@ import { bestRestaurant } from './items/best-restaurant'
 import { dubuddy } from './items/dubuddy'
 import { ecommerceProductPage } from './items/ecommerce-product-page'
 import { foodTaxi } from './items/food-taxi'
+import { ignouTutor } from './items/ignou-tutor'
+import { ignouTutorApp } from './items/ignou-tutor-app'
 import { jeamshivBlogspot } from './items/jeamshiv-blogspot'
 import { movieappShiv } from './items/movieapp-shiv'
 import { movieSearch } from './items/movie-search'
+import { ncertNewBooks } from './items/ncert-new-books'
 import { studyHub } from './items/study-hub'
 import { resolveTechnologies } from './technologies'
 import type { ProjectDetail, ProjectSummary } from './types'
 
 /** Registry — add new projects here after creating their file in items/ */
 export const allProjects: ProjectDetail[] = [
+  ncertNewBooks,
+  ignouTutorApp,
+  ignouTutor,
   ecommerceProductPage,
   dubuddy,
   foodTaxi,
@@ -34,7 +40,7 @@ export function toProjectSummary(project: ProjectDetail): ProjectSummary {
     title: project.title,
     shortDescription: project.shortDescription,
     liveUrl: project.liveUrl,
-    headerImage: project.headerImage,
+    featureImage: project.featureImage,
     technologies: project.technologies,
     order: project.order,
   }

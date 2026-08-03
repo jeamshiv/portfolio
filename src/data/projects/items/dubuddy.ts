@@ -10,8 +10,7 @@ export const dubuddy: ProjectDetail = {
   description:
     'Website created using PHP and Bootstrap. DU BUDDY helps Delhi University aspirants with admission needs. The Android app is available on Google Play Store.',
   liveUrl: 'https://www.dubuddy.in/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/dubuddy-webiste.webp',
+  featureImage: '/projects/dubuddy/feature.webp',
   technologies: ['html', 'css', 'javascript', 'php', 'bootstrap'],
   features: [
     { title: 'Mobile First', description: 'Responsive design for students on any device.' },
@@ -30,6 +29,5 @@ export const dubuddy: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 7,
 }

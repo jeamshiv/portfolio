@@ -3,17 +3,13 @@ import { PenLine } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { navLinks, siteConfig } from '../../data/site'
 import {
-  FacebookIcon,
   GithubIcon,
-  InstagramIcon,
   LinkedinIcon,
 } from '../ui/SocialIcons'
 
 const socialLinks = [
   { icon: GithubIcon, href: siteConfig.social.github, label: 'GitHub' },
   { icon: LinkedinIcon, href: siteConfig.social.linkedin, label: 'LinkedIn' },
-  { icon: InstagramIcon, href: siteConfig.social.instagram, label: 'Instagram' },
-  { icon: FacebookIcon, href: siteConfig.social.facebook, label: 'Facebook' },
   { icon: PenLine, href: siteConfig.social.blog, label: 'Blog' },
 ]
 

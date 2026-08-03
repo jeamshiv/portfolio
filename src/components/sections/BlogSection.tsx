@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Calendar } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { siteConfig } from '../../data/site'
-import { fadeInUp, staggerContainer } from '../../lib/animations'
+import { fadeInUp } from '../../lib/animations'
 import { Button } from '../ui/Button'
 import { SectionHeader } from '../ui/SectionHeader'
 
@@ -97,15 +97,15 @@ export function BlogSection() {
           <p className="text-center text-muted">No blog posts found.</p>
         ) : (
           <>
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {posts.slice(0, visibleCount).map((post) => (
-                <motion.article key={post.link} variants={fadeInUp}>
+                <motion.article
+                  key={post.link}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-60px' }}
+                >
                   <a
                     href={post.link}
                     target="_blank"
@@ -144,7 +144,7 @@ export function BlogSection() {
                   </a>
                 </motion.article>
               ))}
-            </motion.div>
+            </div>
 
             {visibleCount < posts.length && (
               <motion.div

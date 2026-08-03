@@ -10,8 +10,7 @@ export const bestRestaurant: ProjectDetail = {
   description:
     "HTML template for restaurant purposes using HTML, CSS, JavaScript, Bootstrap, Wow.js, and Slick. One-page website for restaurants or pizza shops.",
   liveUrl: 'https://jeamshiv.github.io/restaurant/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/Resturant.webp',
+  featureImage: '/projects/best-restaurant/feature.webp',
   technologies: ['html', 'css', 'javascript', 'bootstrap', 'jquery', 'slick', 'wowjs'],
   features: [
     { title: 'One Page', description: 'Complete restaurant site on a single scrollable page.' },
@@ -26,6 +25,5 @@ export const bestRestaurant: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 2,
 }

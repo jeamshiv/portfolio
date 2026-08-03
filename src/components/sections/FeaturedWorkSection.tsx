@@ -103,7 +103,7 @@ export function FeaturedWorkSection() {
                 className="relative overflow-hidden rounded-3xl border border-border bg-surface-elevated shadow-2xl"
               >
                 <img
-                  src={featured.headerImage}
+                  src={featured.featureImage}
                   alt={featured.title}
                   className="w-full object-cover"
                   loading="lazy"

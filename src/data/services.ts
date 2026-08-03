@@ -20,7 +20,7 @@ export const servicesData: Service[] = [
     id: 'mern-stack',
     title: 'MERN & API Engineering',
     description:
-      'Full-stack development with Node.js, Express, MongoDB, REST and GraphQL APIs to power scalable backend systems.',
+      'Full-stack development with Node.js, Express, MySQLi, REST and GraphQL APIs to power scalable backend systems.',
     icon: Server,
   },
   {

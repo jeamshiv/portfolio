@@ -13,11 +13,25 @@ export interface ProjectContentBlock {
 }
 
 export interface ProjectScreenshot {
+  /**
+   * Local path (e.g. `/projects/<id>/screenshot-1.jpg`) or a remote URL.
+   * Store app screenshots under `public/projects/<id>/`.
+   */
   image: string
   caption: string
 }
 
-/** Full project record — one file per project */
+/**
+ * Full project record — one file per project.
+ *
+ * Image fields (`featureImage`, `screenshots[].image`) accept either:
+ *   - a local path served from `public/`, e.g. `/projects/<id>/feature.webp`, or
+ *   - a remote URL from the live site, e.g. `https://.../image.webp`.
+ *
+ * Convention: keep every project's assets in `public/projects/<id>/`:
+ *   - `feature.<ext>`      → the single feature image (websites & apps)
+ *   - `screenshot-1..N.<ext>` → app screenshots (apps only)
+ */
 export interface ProjectDetail {
   /** Stable slug used in routes: /projects/movieapp-shiv */
   id: string
@@ -30,12 +44,13 @@ export interface ProjectDetail {
   /** Detail page hero */
   description: string
   liveUrl: string
-  headerImage: string
+  /** Single feature image shown on cards and the detail hero. */
+  featureImage: string
   technologies: TechnologyId[]
   features: ProjectFeature[]
   mainContent: ProjectContentBlock[]
+  /** App screenshots for the gallery slider. Leave empty `[]` for websites. */
   screenshots: ProjectScreenshot[]
-  fullScreenshot?: string | null
   /** Display order (higher = shown first) */
   order: number
   featured?: boolean
@@ -48,7 +63,7 @@ export interface ProjectSummary {
   title: string
   shortDescription: string
   liveUrl: string
-  headerImage: string
+  featureImage: string
   technologies: TechnologyId[]
   order: number
 }

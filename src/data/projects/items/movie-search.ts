@@ -9,8 +9,7 @@ export const movieSearch: ProjectDetail = {
   description:
     'The Movie Search website helps you get all information about a searched movie — brief summaries, posters, and more.',
   liveUrl: 'https://jeamshiv.github.io/movie/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/first-movie.webp',
+  featureImage: '/projects/movie-search/feature.webp',
   technologies: ['html', 'css', 'javascript', 'bootstrap'],
   features: [
     { title: 'Movie Search', description: 'Search any movie and get instant results.' },
@@ -25,6 +24,5 @@ export const movieSearch: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 4,
 }

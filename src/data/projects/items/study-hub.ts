@@ -9,8 +9,7 @@ export const studyHub: ProjectDetail = {
   description:
     "HTML template for educational purposes using HTML, CSS, and JavaScript. One-page website for educational platforms.",
   liveUrl: 'https://jeamshiv.github.io/studyhub.io/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/StudyHub.webp',
+  featureImage: '/projects/study-hub/feature.webp',
   technologies: ['html', 'css', 'javascript'],
   features: [
     { title: 'Educational Focus', description: 'Layout designed for courses and learning content.' },
@@ -25,6 +24,5 @@ export const studyHub: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 1,
 }

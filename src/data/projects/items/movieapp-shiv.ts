@@ -10,8 +10,7 @@ export const movieappShiv: ProjectDetail = {
   description:
     'Movie search app built with React Native. Find movies, posters, casts, trailers, and detailed cast information — all in one place.',
   liveUrl: 'https://www.google.com',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/app/MovieAppShiv.webp',
+  featureImage: '/projects/movieapp-shiv/feature.webp',
   technologies: ['react-native', 'react'],
   features: [
     { title: 'User Friendly', description: 'Intuitive search and browse experience.' },
@@ -29,16 +28,11 @@ export const movieappShiv: ProjectDetail = {
       body: 'Leverages React Native for a native-feeling mobile experience with shared codebase.',
     },
   ],
+  // App screenshots — stored in public/projects/movieapp-shiv/.
   // Add / remove screenshots freely — the slider is fully dynamic.
   screenshots: [
-    { image: '/assets/demoSceen1.jpg', caption: '' },
-    { image: '/assets/demoSceen2.jpg', caption: '' },
-    { image: '/assets/demoSceen1.jpg', caption: '' },
-    { image: '/assets/demoSceen2.jpg', caption: '' },
-    { image: '/assets/demoSceen1.jpg', caption: '' },
-    { image: '/assets/demoSceen2.jpg', caption: '' },
+    { image: '/projects/movieapp-shiv/screenshot-1.jpg', caption: '' },
+    { image: '/projects/movieapp-shiv/screenshot-2.jpg', caption: '' },
   ],
-  fullScreenshot: null,
   order: 5,
-  featured: true,
 }

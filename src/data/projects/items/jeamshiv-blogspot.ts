@@ -9,8 +9,7 @@ export const jeamshivBlogspot: ProjectDetail = {
   description:
     'My blogspot site — highly customized with creative UI features and simple navigation.',
   liveUrl: 'https://jeamshiv.blogspot.com',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/jeamshivBlogspot.webp',
+  featureImage: '/projects/jeamshiv-blogspot/feature.webp',
   technologies: ['html', 'css', 'javascript', 'bootstrap', 'jquery', 'slick', 'wowjs'],
   features: [
     { title: 'Custom Theme', description: 'Unique gradient colors and theme shapes.' },
@@ -25,6 +24,5 @@ export const jeamshivBlogspot: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 3,
 }

@@ -8,15 +8,13 @@ export const siteConfig = {
     'Shivam Kumar (Jeamshiv) — Full Stack & React Native developer with 5+ years building scalable web and mobile apps using React, Next.js, Node.js, GraphQL, and AWS.',
   siteUrl: 'https://jeamshiv.netlify.app',
   greeting: 'Hello, I\'m',
-  email: 'shivamkumar06952@gmail.com',
+  email: 'jeamshiv@gmail.com',
   phone: '+91 8750303073',
   location: 'Faridabad, Haryana',
   resumeUrl: '/assets/Shivam-Kumar-Resume.pdf',
   social: {
     github: 'https://github.com/jeamshiv',
     linkedin: 'https://linkedin.com/in/jeamshiv',
-    instagram: 'https://instagram.com/jeamshiv',
-    facebook: 'https://facebook.com/jeamshiv',
     blog: 'https://jeamshiv.blogspot.com',
   },
 } as const

@@ -10,8 +10,7 @@ export const ecommerceProductPage: ProjectDetail = {
   description:
     'It was a Frontend Mentor challenge — Ecommerce Product Page. I created this page using Next.js and Bootstrap. It was my first project with Next.js.',
   liveUrl: 'https://ecommerce-product-page-main-frontendmentor-jeamshiv.vercel.app/',
-  headerImage:
-    'https://raw.githubusercontent.com/jeamshiv/portfolio/master/src/MemoryData/image/web/ecommerce-product-page-main-frontendmentor.webp',
+  featureImage: '/projects/ecommerce-product-page/feature.webp',
   technologies: ['html', 'css', 'react', 'nextjs', 'bootstrap'],
   features: [
     { title: 'Mobile First', description: 'Responsive layout optimized for all screen sizes.' },
@@ -30,6 +29,5 @@ export const ecommerceProductPage: ProjectDetail = {
     },
   ],
   screenshots: [],
-  fullScreenshot: null,
   order: 8,
 }

@@ -40,7 +40,7 @@ export function ProjectsSection() {
                     <div className="relative mb-5 overflow-hidden rounded-xl border border-border/60">
                       <div className="aspect-video">
                         <img
-                          src={project.headerImage}
+                          src={project.featureImage}
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                           loading="lazy"

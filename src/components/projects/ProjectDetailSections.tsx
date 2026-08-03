@@ -132,7 +132,7 @@ export function ProjectDetailHero({ project, ctaLabel }: ProjectDetailHeroProps)
               </div>
             )}
             <img
-              src={project.headerImage}
+              src={project.featureImage}
               alt={project.title}
               className="max-h-160 w-full object-cover object-top"
               loading="eager"
