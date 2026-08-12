@@ -4,7 +4,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
 
 # Static files in publish dir (robots.txt, sitemap.xml, assets) are served
 # before this SPA fallback applies.
