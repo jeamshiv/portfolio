@@ -59,7 +59,7 @@ function encodeFormBody(data: Record<string, string>) {
 const MAX_LENGTHS = {
   name: 50,
   email: 100,
-  phone: 10,
+  phone: 20,
   message: 500,
 } as const
 
@@ -75,8 +75,16 @@ const validationSchema = Yup.object({
     .max(MAX_LENGTHS.email, `Email must be at most ${MAX_LENGTHS.email} characters`)
     .required('Please enter your email'),
   phone: Yup.string()
-    .matches(/^\d{10}$/, 'Please enter a valid 10-digit phone number')
-    .required('Please enter your phone number'),
+    .trim()
+    .test(
+      'phone-optional',
+      'Please enter a valid phone number (7–15 digits, optional +)',
+      (value) => {
+        if (!value) return true
+        const digits = value.replace(/\D/g, '')
+        return digits.length >= 7 && digits.length <= 15
+      },
+    ),
   message: Yup.string()
     .trim()
     .min(10, 'Message must be at least 10 characters')
@@ -222,7 +230,8 @@ export function ContactSection() {
 
                       <div>
                         <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
-                          Your Phone
+                          Your Phone{' '}
+                          <span className="font-normal text-muted">(optional)</span>
                         </label>
                         <Field
                           id="phone"
@@ -231,7 +240,7 @@ export function ContactSection() {
                           autoComplete="tel"
                           maxLength={MAX_LENGTHS.phone}
                           className={inputClasses}
-                          placeholder="9876543210"
+                          placeholder="+91 98765 43210"
                         />
                         <ErrorMessage name="phone" component="p" className="mt-1.5 text-xs text-red-500" />
                       </div>

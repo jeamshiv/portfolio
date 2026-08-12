@@ -9,6 +9,7 @@ import {
   ProjectFeatures,
 } from '../components/projects/ProjectDetailSections'
 import { getProjectByLegacyId } from '../data/projects'
+import { siteConfig } from '../data/site'
 import { pageReveal } from '../lib/animations'
 
 export function WebsiteProjectPage() {
@@ -24,18 +25,21 @@ export function WebsiteProjectPage() {
   }
 
   return (
-    <motion.main
+    <motion.div
       variants={pageReveal}
       initial="hidden"
       animate="visible"
       className="relative"
     >
+      <title>{`${project.title} | ${siteConfig.fullName}`}</title>
+      <meta name="description" content={project.description} />
+
       <ProjectDetailHero project={project} ctaLabel="Live Preview" />
       <ProjectFeatures project={project} title="Website Features" />
       <ProjectContentSection project={project} headline="Built for the web" />
       <ProjectContactCta />
       <BlogSection />
       <ContactSection />
-    </motion.main>
+    </motion.div>
   )
 }

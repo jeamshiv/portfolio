@@ -2,12 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var preferDark =
+            stored === 'dark' ||
+            (stored !== 'light' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (preferDark) document.documentElement.classList.add('dark')
+        } catch (_) {}
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Shivam Kumar (Jeamshiv) — Full Stack & React Native developer building scalable web and mobile apps with React, Next.js, Node.js, and AWS."
     />
+    <link rel="canonical" href="https://jeamshiv.netlify.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jeamshiv" />
+    <meta property="og:url" content="https://jeamshiv.netlify.app/" />
+    <meta property="og:title" content="Shivam Kumar | Full Stack & React Native Developer" />
+    <meta
+      property="og:description"
+      content="Shivam Kumar (Jeamshiv) — Full Stack & React Native developer building scalable web and mobile apps with React, Next.js, Node.js, and AWS."
+    />
+    <meta property="og:image" content="https://jeamshiv.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shivam Kumar | Full Stack & React Native Developer" />
+    <meta
+      name="twitter:description"
+      content="Shivam Kumar (Jeamshiv) — Full Stack & React Native developer building scalable web and mobile apps with React, Next.js, Node.js, and AWS."
+    />
+    <meta name="twitter:image" content="https://jeamshiv.netlify.app/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +51,29 @@
       rel="stylesheet"
     />
     <title>Shivam Kumar | Full Stack & React Native Developer</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shivam Kumar",
+        "alternateName": "Jeamshiv",
+        "url": "https://jeamshiv.netlify.app",
+        "image": "https://jeamshiv.netlify.app/og-image.png",
+        "jobTitle": "Full Stack & React Native Developer",
+        "email": "mailto:jeamshiv@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Faridabad",
+          "addressRegion": "Haryana",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://github.com/jeamshiv",
+          "https://linkedin.com/in/jeamshiv",
+          "https://jeamshiv.blogspot.com"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

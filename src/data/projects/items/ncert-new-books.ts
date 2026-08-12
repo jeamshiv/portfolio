@@ -29,6 +29,7 @@ export const ncertNewBooks: ProjectDetail = {
   description:
     'NCERT New Books puts the entire NCERT library (Class 1–12) in your pocket. Read rationalised chapters, listen to audiobooks with read-along transcripts, scan the QR in your textbook to jump straight to a chapter, and check official term-wise syllabus PDFs. Built with React Native and NativeWind, powered by Firebase for Remote Config, Analytics, and Crashlytics, with WebView-based content flows.',
   liveUrl: 'https://play.google.com/store/apps/details?id=com.ncertnewbooks.app',
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.ncertnewbooks.app',
   featureImage: '/projects/ncert-new-books/feature.png',
   technologies: ['react-native', 'react', 'nativewind', 'firebase', 'webview'],
   features: [

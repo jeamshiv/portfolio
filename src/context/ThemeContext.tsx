@@ -1,29 +1,5 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react'
-
-type Theme = 'light' | 'dark'
-
-interface ThemeContextValue {
-  theme: Theme
-  toggleTheme: () => void
-  setTheme: (theme: Theme) => void
-}
-
-const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)
-
-function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'dark'
-  const stored = localStorage.getItem('theme') as Theme | null
-  if (stored === 'light' || stored === 'dark') return stored
-  return 'dark'
-}
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { getInitialTheme, ThemeContext, type Theme } from './theme-context'
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme)
@@ -32,6 +8,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement
     root.classList.toggle('dark', theme === 'dark')
     localStorage.setItem('theme', theme)
+    // Enable color transitions only after the first paint so the
+    // blocking <head> script can set the theme without a visible fade.
+    requestAnimationFrame(() => {
+      root.classList.add('theme-ready')
+    })
   }, [theme])
 
   const setTheme = useCallback((next: Theme) => setThemeState(next), [])
@@ -46,10 +27,4 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   )
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext)
-  if (!context) throw new Error('useTheme must be used within ThemeProvider')
-  return context
 }

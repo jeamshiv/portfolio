@@ -93,7 +93,7 @@ export function FeaturedWorkSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="relative"
+            className="relative overflow-hidden"
           >
             <Link to={featured.detailPath} className="block">
               <div className="absolute -inset-4 rounded-3xl bg-linear-to-br from-accent/20 to-transparent blur-2xl" />

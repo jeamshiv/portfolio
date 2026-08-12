@@ -38,7 +38,7 @@ export const scaleIn: Variants = {
 }
 
 export const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -32 },
+  hidden: { opacity: 0, x: '-5%' },
   visible: {
     opacity: 1,
     x: 0,
@@ -47,7 +47,8 @@ export const slideInLeft: Variants = {
 }
 
 export const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 32 },
+  // Percentage offsets stay inside the element's box and won't widen the page.
+  hidden: { opacity: 0, x: '5%' },
   visible: {
     opacity: 1,
     x: 0,

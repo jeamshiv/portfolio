@@ -30,15 +30,15 @@ export function ExperienceCardList() {
       className="space-y-4"
     >
       {experienceData.map((item, index) => {
-        const bg = experienceBackgrounds[index]
+        const bg = experienceBackgrounds[index % experienceBackgrounds.length]
 
         return (
           <motion.div key={`${item.company}-${item.period}`} variants={fadeInUp}>
             <Card
               className={cn(
                 'bg-no-repeat p-5 sm:p-6',
-                bg?.image,
-                bg?.position,
+                bg.image,
+                bg.position,
                 'dark:!bg-none',
               )}
             >

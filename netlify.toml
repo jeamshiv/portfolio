@@ -6,6 +6,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Static files in publish dir (robots.txt, sitemap.xml, assets) are served
+# before this SPA fallback applies.
 [[redirects]]
   from = "/*"
   to = "/index.html"

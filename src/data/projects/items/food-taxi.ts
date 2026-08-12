@@ -7,7 +7,7 @@ export const foodTaxi: ProjectDetail = {
   title: 'Food Taxi',
   shortDescription: 'React website for food and taxi services provider.',
   description: 'Website created in React for a food and taxi services provider.',
-  liveUrl: 'https://ahooptie.herokuapp.com/',
+  // Live Heroku demo retired with free dynos — keep the case study, no live CTA.
   featureImage: '/projects/food-taxi/feature.webp',
   technologies: ['html', 'css', 'javascript', 'react', 'bootstrap'],
   features: [

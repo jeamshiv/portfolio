@@ -9,6 +9,7 @@ import { Button } from '../ui/Button'
 import { ThemeToggle } from '../ui/ThemeToggle'
 
 const sectionIds = navLinks.map((link) => link.href)
+const EMPTY_SECTIONS: string[] = []
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -16,7 +17,7 @@ export function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
-  const activeSection = useActiveSection(isHome ? sectionIds : [])
+  const activeSection = useActiveSection(isHome ? sectionIds : EMPTY_SECTIONS)
   const scrollProgress = useScrollProgress()
 
   useEffect(() => {
@@ -35,17 +36,18 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false)
-    if (isHome) {
+    // Scroll locally when the section exists on this page (e.g. project detail
+    // contact form); only navigate home when it doesn't.
+    if (document.getElementById(href)) {
       scrollToSection(href)
-    } else {
-      navigate(`/#${href}`)
+      return
     }
+    navigate(`/#${href}`)
   }
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50">
-        {/* Scroll progress bar */}
         <motion.div
           className="h-0.5 origin-left bg-linear-to-r from-accent to-accent-light"
           style={{ scaleX: scrollProgress }}
@@ -68,7 +70,6 @@ export function Navbar() {
               </motion.span>
             </Link>
 
-            {/* Desktop nav */}
             <ul className="hidden items-center gap-1 lg:flex">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -106,7 +107,6 @@ export function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile toggle */}
             <div className="flex items-center gap-3 lg:hidden">
               <ThemeToggle />
               <motion.button
@@ -124,7 +124,6 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile menu overlay */}
       <AnimatePresence>
         {isMobileOpen && (
           <>

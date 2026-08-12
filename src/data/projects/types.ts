@@ -43,7 +43,11 @@ export interface ProjectDetail {
   shortDescription: string
   /** Detail page hero */
   description: string
-  liveUrl: string
+  liveUrl?: string
+  /** Google Play listing — only render the Play button when set */
+  playStoreUrl?: string
+  /** App Store listing — only render the App Store button when set */
+  appStoreUrl?: string
   /** Single feature image shown on cards and the detail hero. */
   featureImage: string
   technologies: TechnologyId[]
@@ -62,7 +66,7 @@ export interface ProjectSummary {
   type: ProjectType
   title: string
   shortDescription: string
-  liveUrl: string
+  liveUrl?: string
   featureImage: string
   technologies: TechnologyId[]
   order: number

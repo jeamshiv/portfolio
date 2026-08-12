@@ -9,7 +9,7 @@ export const movieappShiv: ProjectDetail = {
     'React Native movie search app with posters, casts, trailers, and detailed information.',
   description:
     'Movie search app built with React Native. Find movies, posters, casts, trailers, and detailed cast information — all in one place.',
-  liveUrl: 'https://www.google.com',
+  // No public store listing — hide download / live CTAs rather than shipping a filler URL.
   featureImage: '/projects/movieapp-shiv/feature.webp',
   technologies: ['react-native', 'react'],
   features: [

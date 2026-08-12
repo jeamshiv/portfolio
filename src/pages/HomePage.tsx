@@ -9,6 +9,7 @@ import { HeroSection } from '../components/sections/HeroSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
 import { ServicesSection } from '../components/sections/ServicesSection'
 import { TechnologiesSection } from '../components/sections/TechnologiesSection'
+import { siteConfig } from '../data/site'
 import { pageReveal } from '../lib/animations'
 import { scrollToSection } from '../lib/utils'
 
@@ -23,12 +24,15 @@ export function HomePage() {
   }, [hash])
 
   return (
-    <motion.main
+    <motion.div
       variants={pageReveal}
       initial="hidden"
       animate="visible"
       className="relative"
     >
+      <title>{`${siteConfig.fullName} | ${siteConfig.title}`}</title>
+      <meta name="description" content={siteConfig.description} />
+
       <HeroSection />
       <AboutSection />
       <ServicesSection />
@@ -37,6 +41,6 @@ export function HomePage() {
       <TechnologiesSection />
       <BlogSection />
       <ContactSection />
-    </motion.main>
+    </motion.div>
   )
 }

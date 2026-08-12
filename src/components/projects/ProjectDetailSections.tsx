@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
 import {
   ArrowLeft,
-  ChevronLeft,
-  ChevronRight,
   ExternalLink,
   Gauge,
   Layers,
@@ -11,13 +9,7 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react'
-import { useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import type { Swiper as SwiperClass } from 'swiper'
-import { Autoplay, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
 import type { ProjectDetail } from '../../data/projects/types'
 import { getProjectTechnologyLabels } from '../../data/projects'
 import { fadeInUp, staggerContainer } from '../../lib/animations'
@@ -25,6 +17,8 @@ import { scrollToSection } from '../../lib/utils'
 import { Button } from '../ui/Button'
 import { Card } from '../ui/Card'
 import { SectionHeader } from '../ui/SectionHeader'
+
+export { ProjectScreenshots } from './ProjectScreenshots'
 
 interface ProjectDetailHeroProps {
   project: ProjectDetail
@@ -37,7 +31,7 @@ export function ProjectDetailHero({ project, ctaLabel }: ProjectDetailHeroProps)
 
   let displayUrl: string
   try {
-    displayUrl = new URL(project.liveUrl).hostname.replace(/^www\./, '')
+    displayUrl = project.liveUrl ? new URL(project.liveUrl).hostname.replace(/^www\./, '') : ''
   } catch {
     displayUrl = ''
   }
@@ -99,13 +93,15 @@ export function ProjectDetailHero({ project, ctaLabel }: ProjectDetailHeroProps)
           </motion.div>
 
           <motion.div variants={fadeInUp} className="mt-8">
-            <Button
-              variant="primary"
-              onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
-            >
-              {ctaLabel}
-              <ExternalLink className="h-4 w-4" />
-            </Button>
+            {project.liveUrl ? (
+              <Button
+                variant="primary"
+                onClick={() => window.open(project.liveUrl, '_blank', 'noopener,noreferrer')}
+              >
+                {ctaLabel}
+                <ExternalLink className="h-4 w-4" />
+              </Button>
+            ) : null}
           </motion.div>
         </motion.div>
 
@@ -114,7 +110,7 @@ export function ProjectDetailHero({ project, ctaLabel }: ProjectDetailHeroProps)
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mt-14 md:mt-16"
+          className="relative mt-14 overflow-hidden md:mt-16"
         >
           <div className="absolute -inset-6 rounded-4xl bg-linear-to-br from-accent/25 via-accent/5 to-transparent blur-3xl" />
           <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-elevated shadow-2xl">
@@ -234,103 +230,6 @@ export function ProjectContentSection({
             ))}
           </motion.div>
         </div>
-      </div>
-    </section>
-  )
-}
-
-export function ProjectScreenshots({ project }: { project: ProjectDetail }) {
-  const validScreenshots = project.screenshots.filter((s) => s.image)
-  const [swiper, setSwiper] = useState<SwiperClass | null>(null)
-
-  if (validScreenshots.length === 0) return null
-
-  return (
-    <section className="py-16 md:py-24">
-      <div className="section-container">
-        {/* Header row with slider controls */}
-        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between md:mb-12">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Gallery
-            </p>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-              App Screenshots
-            </h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-muted md:text-lg">
-              Swipe through the interface and core screens of the app.
-            </p>
-          </div>
-
-          <div className="flex shrink-0 gap-3">
-            <button
-              type="button"
-              onClick={() => swiper?.slidePrev()}
-              aria-label="Previous screenshots"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated text-foreground transition-colors hover:border-accent/40 hover:text-accent"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => swiper?.slideNext()}
-              aria-label="Next screenshots"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated text-foreground transition-colors hover:border-accent/40 hover:text-accent"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Swiper slider */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Swiper
-            onSwiper={setSwiper}
-            modules={[Autoplay, Pagination]}
-            grabCursor
-            rewind
-            speed={600}
-            spaceBetween={20}
-            autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              0: { slidesPerView: 1.25, spaceBetween: 16 },
-              480: { slidesPerView: 1.8, spaceBetween: 20 },
-              640: { slidesPerView: 2.4, spaceBetween: 24 },
-              768: { slidesPerView: 3, spaceBetween: 28 },
-              1024: { slidesPerView: 4, spaceBetween: 32 },
-            }}
-            style={
-              {
-                '--swiper-theme-color': 'var(--color-accent)',
-                '--swiper-pagination-bottom': '0px',
-              } as CSSProperties
-            }
-            className="pb-12!"
-          >
-            {validScreenshots.map((shot, index) => (
-              <SwiperSlide key={`${shot.image}-${index}`} className="h-auto!">
-                <div className="group overflow-hidden rounded-3xl border border-border bg-surface-elevated shadow-lg transition-transform duration-300 hover:-translate-y-1.5 dark:shadow-black/30">
-                  <img
-                    src={shot.image}
-                    alt={shot.caption || `${project.title} screenshot ${index + 1}`}
-                    className="aspect-9/19 w-full object-cover"
-                    loading="lazy"
-                    draggable={false}
-                  />
-                </div>
-                {shot.caption && (
-                  <p className="mt-4 text-center text-sm font-medium text-muted">{shot.caption}</p>
-                )}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
       </div>
     </section>
   )

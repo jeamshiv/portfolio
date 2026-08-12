@@ -20,17 +20,24 @@ declare global {
   }
 }
 
+interface BloggerLink {
+  rel?: string
+  href?: string
+}
+
 interface BloggerFeed {
   feed: {
     entry: Array<{
       title: { $t: string }
-      link: Array<{ href: string }>
-      media$thumbnail: { url: string }
+      link: BloggerLink[]
+      media$thumbnail?: { url: string }
       published: { $t: string }
       content: { $t: string }
     }>
   }
 }
+
+const FEED_TIMEOUT_MS = 8000
 
 function formatDate(dateStr: string) {
   try {
@@ -44,33 +51,52 @@ function formatDate(dateStr: string) {
   }
 }
 
+function getAlternateLink(links: BloggerLink[] | undefined): string {
+  if (!links?.length) return siteConfig.social.blog
+  const alternate = links.find((link) => link.rel === 'alternate' && link.href)
+  return alternate?.href ?? links[0]?.href ?? siteConfig.social.blog
+}
+
 export function BlogSection() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [visibleCount, setVisibleCount] = useState(6)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    let settled = false
+
+    const finish = (parsed: BlogPost[] = []) => {
+      if (settled) return
+      settled = true
+      setPosts(parsed)
+      setIsLoading(false)
+    }
+
     window.latestPost = (json: BloggerFeed) => {
       const entries = json?.feed?.entry ?? []
       const parsed: BlogPost[] = entries.map((entry) => ({
         title: entry.title.$t,
-        link: entry.link[4]?.href ?? entry.link[0]?.href ?? siteConfig.social.blog,
+        link: getAlternateLink(entry.link),
         thumbnail: entry.media$thumbnail?.url?.replace('s72-c', 's400') ?? '',
         published: entry.published.$t,
         excerpt: entry.content.$t.replace(/(<([^>]+)>)/gi, '').slice(0, 120) + '…',
       }))
-      setPosts(parsed)
-      setIsLoading(false)
+      finish(parsed)
     }
 
     const script = document.createElement('script')
     script.src =
       'https://jeamshiv.blogspot.com/feeds/posts/default?alt=json-in-script&callback=latestPost'
     script.async = true
+    script.onerror = () => finish([])
     document.body.appendChild(script)
 
+    const timeoutId = window.setTimeout(() => finish([]), FEED_TIMEOUT_MS)
+
     return () => {
-      document.body.removeChild(script)
+      settled = true
+      window.clearTimeout(timeoutId)
+      script.remove()
       delete window.latestPost
     }
   }, [])
@@ -116,13 +142,15 @@ export function BlogSection() {
                       whileHover={{ y: -4 }}
                       className="glass flex h-full flex-col overflow-hidden rounded-2xl transition-shadow hover:shadow-xl hover:shadow-accent/5"
                     >
-                      <div className="aspect-video overflow-hidden">
-                        <img
-                          src={post.thumbnail}
-                          alt={post.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
+                      <div className="aspect-video overflow-hidden bg-surface-elevated">
+                        {post.thumbnail ? (
+                          <img
+                            src={post.thumbnail}
+                            alt={post.title}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        ) : null}
                       </div>
                       <div className="flex flex-1 flex-col p-5">
                         <div className="mb-2 flex items-center gap-2 text-xs text-muted">

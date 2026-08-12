@@ -12,6 +12,7 @@ export const ignouTutorApp: ProjectDetail = {
   description:
     'IGNOU Tutor is a React Native mobile app that gives Indira Gandhi National Open University (IGNOU) students one-tap access to study materials, previous year question papers, assignments, grade cards, hall tickets, and announcements. Styled with NativeWind and powered by Firebase for Remote Config, Analytics, and Crashlytics, with WebView-based flows for select content. Available on Google Play with 10k+ downloads.',
   liveUrl: 'https://play.google.com/store/apps/details?id=com.ignoututor',
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.ignoututor',
   featureImage: '/projects/ignou-tutor-app/feature.png',
   technologies: ['react-native', 'react', 'nativewind', 'firebase', 'webview'],
   features: [
