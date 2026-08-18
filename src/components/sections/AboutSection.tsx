@@ -54,7 +54,7 @@ export function AboutSection() {
                   <div className="flex flex-col items-center">
                     <div className="z-10 h-3 w-3 rounded-full border-2 border-accent bg-background" />
                     {index < educationData.length - 1 && (
-                      <div className="w-px flex-1 bg-border" />
+                      <div className="w-px flex-1 bg-accent-muted" />
                     )}
                   </div>
 
